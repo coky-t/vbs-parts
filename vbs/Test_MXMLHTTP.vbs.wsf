@@ -1,0 +1,15 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_HttpGet">
+        <script language="vbscript" src="MXMLHTTP.vbs" />
+        <script language="vbscript">
+            call Test_HttpGet
+        </script>
+    </job>
+    <job id="Test_HttpPost">
+        <script language="vbscript" src="MXMLHTTP.vbs" />
+        <script language="vbscript">
+            call Test_HttpPost
+        </script>
+    </job>
+</package>
