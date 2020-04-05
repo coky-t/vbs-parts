@@ -1,0 +1,27 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_MADODBStream_TextFileW">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            call Test_MADODBStream_TextFileW
+        </script>
+    </job>
+    <job id="Test_MADODBStream_TextFileA">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            call Test_MADODBStream_TextFileA
+        </script>
+    </job>
+    <job id="Test_MADODBStream_TextFileUTF8">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            call Test_MADODBStream_TextFileUTF8
+        </script>
+    </job>
+    <job id="Test_MADODBStream_BinaryFile">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            call Test_MADODBStream_BinaryFile
+        </script>
+    </job>
+</package>
