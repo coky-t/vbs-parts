@@ -1,0 +1,15 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_MFile_TextFileW">
+        <script language="vbscript" src="MFile.vbs" />
+        <script language="vbscript">
+            call Test_MFile_TextFileW
+        </script>
+    </job>
+    <job id="Test_MFile_TextFileA">
+        <script language="vbscript" src="MFile.vbs" />
+        <script language="vbscript">
+            call Test_MFile_TextFileA
+        </script>
+    </job>
+</package>
