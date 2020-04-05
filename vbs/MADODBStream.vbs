@@ -370,7 +370,8 @@ Private Sub Test_BinaryFile()
     For Index1 = 1 To LenB(Data) Step 16
         Dim Index2
         For Index2 = Index1 To Index1 + 15
-            Text = Text & Right("0" & Hex(AscB(MidB(Data, Index2, 1))), 2) & " "
+            Text = _
+                Text & Right("0" & Hex(AscB(MidB(Data, Index2, 1))), 2) & " "
         Next
         Text = Text & vbNewLine
     Next
