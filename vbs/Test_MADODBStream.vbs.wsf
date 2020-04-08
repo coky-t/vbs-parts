@@ -18,6 +18,12 @@
             call Test_TextFileUTF8
         </script>
     </job>
+    <job id="Test_TextFileUTF8_withoutBOM">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            call Test_TextFileUTF8_withoutBOM
+        </script>
+    </job>
     <job id="Test_BinaryFile">
         <script language="vbscript" src="MADODBStream.vbs" />
         <script language="vbscript">
