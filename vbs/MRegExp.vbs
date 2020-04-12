@@ -101,8 +101,7 @@ Public Function RegExp_Execute( _
     IgnoreCase, _
     GlobalMatches, _
     MultiLine, _
-    RegExpObject) _
-   
+    RegExpObject)
     
     On Error Resume Next
     
@@ -122,8 +121,7 @@ Public Function RegExp_Replace( _
     IgnoreCase, _
     GlobalMatches, _
     MultiLine, _
-    RegExpObject) _
-   
+    RegExpObject)
     
     On Error Resume Next
     
@@ -141,8 +139,7 @@ Public Function RegExp_Test( _
     Pattern, _
     IgnoreCase, _
     MultiLine, _
-    RegExpObject) _
-   
+    RegExpObject)
     
     On Error Resume Next
     
