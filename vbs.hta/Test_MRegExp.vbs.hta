@@ -1,0 +1,424 @@
+<html>
+
+<head>
+<title>Test_MRegExp.vbs.hta</title>
+
+<meta http-equiv="msthemecompatible" content="yes">
+
+<hta:application innerborder="no" scroll="no" />
+
+<script language="vbscript">
+<!--
+'Attribute VB_Name = "MRegExp"
+Option Explicit
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+'
+' Microsoft VBScript Regular Expression 5.5
+' - VBScript_RegExp_55.RegExp
+'
+
+'
+' --- RegExp ---
+'
+
+'
+' GetRegExp
+' - Returns a RegExp object.
+'
+
+'
+' RegExpObject:
+'   Optional. The name of a RegExp object.
+'
+
+Public Function GetRegExp( _
+    RegExpObject)
+    
+    If RegExpObject Is Nothing Then
+        Set GetRegExp = New RegExp
+    Else
+        Set GetRegExp = RegExpObject
+    End If
+End Function
+
+'
+' === RegExp ===
+'
+
+'
+' RegExp_Execute
+' - Executes a regular expression search against a specified string.
+'
+' RegExp_Replace
+' - Replaces text found in a regular expression search.
+'
+' RegExp_Test
+' - Executes a regular expression search against a specified string
+'   and returns a Boolean value that indicates if a pattern match was found.
+'
+
+'
+' SourceString:
+'   Required. The text string upon which the regular expression is executed.
+'
+' ReplaceString:
+'   Required. The replacement text string.
+'
+' Pattern:
+'   Required. Regular string expression being searched for.
+'   https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/f97kw5ka(v=vs.84)
+'
+' IgnoreCase:
+'   Optional. The value is False if the search is case-sensitive,
+'   True if it is not. Default is False.
+'
+' GlobalMatches:
+'   Optional. The value is True if the search applies to the entire string,
+'   False if it does not. Default is False.
+'
+' MultiLine:
+'   Optional. The value is False if the search is single-line mode,
+'   True if it is multi-line mode. Default is False.
+'
+' RegExpObject:
+'   Optional. The name of a RegExp object.
+'
+
+Public Function RegExp_Execute( _
+    SourceString, _
+    Pattern, _
+    IgnoreCase, _
+    GlobalMatches, _
+    MultiLine, _
+    RegExpObject) _
+   
+    
+    On Error Resume Next
+    
+    With GetRegExp(RegExpObject)
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .Global = GlobalMatches
+        .MultiLine = MultiLine
+        Set RegExp_Execute = .Execute(SourceString)
+    End With
+End Function
+
+Public Function RegExp_Replace( _
+    SourceString, _
+    ReplaceString, _
+    Pattern, _
+    IgnoreCase, _
+    GlobalMatches, _
+    MultiLine, _
+    RegExpObject) _
+   
+    
+    On Error Resume Next
+    
+    With GetRegExp(RegExpObject)
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .Global = GlobalMatches
+        .MultiLine = MultiLine
+        RegExp_Replace = .Replace(SourceString, ReplaceString)
+    End With
+End Function
+
+Public Function RegExp_Test( _
+    SourceString, _
+    Pattern, _
+    IgnoreCase, _
+    MultiLine, _
+    RegExpObject) _
+   
+    
+    On Error Resume Next
+    
+    With GetRegExp(RegExpObject)
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .MultiLine = MultiLine
+        RegExp_Test = .Test(SourceString)
+    End With
+End Function
+
+'
+' --- Test ---
+'
+
+Sub btnTest_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Pattern
+    Pattern = inputPattern.value
+    If Pattern = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim IgnoreCase
+    IgnoreCase = inputIgnoreCase.checked
+    
+    Dim MultiLine
+    MultiLine = inputMultiLine.checked
+    
+    Dim Result
+    Result = _
+        RegExp_Test(SourceString, Pattern, IgnoreCase, MultiLine, Nothing)
+    
+    tdResult.innerText = CStr(Result)
+End Sub
+
+Sub btnReplace_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim ReplaceString
+    ReplaceString = inputReplaceString.value
+    If ReplaceString = "" Then
+        MsgBox "ReplaceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Pattern
+    Pattern = inputPattern.value
+    If Pattern = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim IgnoreCase
+    IgnoreCase = inputIgnoreCase.checked
+    
+    Dim GlobalMatches
+    GlobalMatches = inputGlobalMatches.checked
+    
+    Dim MultiLine
+    MultiLine = inputMultiLine.checked
+    
+    Dim Result
+    Result = _
+        RegExp_Replace( _
+            SourceString, _
+            ReplaceString, _
+            Pattern, _
+            IgnoreCase, _
+            GlobalMatches, _
+            MultiLine, _
+            Nothing)
+    
+    tdResult.innerText = Result
+End Sub
+
+Sub btnExecute_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Pattern
+    Pattern = inputPattern.value
+    If Pattern = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim IgnoreCase
+    IgnoreCase = inputIgnoreCase.checked
+    
+    Dim GlobalMatches
+    GlobalMatches = inputGlobalMatches.checked
+    
+    Dim MultiLine
+    MultiLine = inputMultiLine.checked
+    
+    Dim Matches
+    Set Matches = _
+        RegExp_Execute( _
+            SourceString, _
+            Pattern, _
+            IgnoreCase, _
+            GlobalMatches, _
+            MultiLine, _
+            Nothing)
+    
+    Test_RegExp_Execute_Matches Matches
+End Sub
+
+Private Sub Test_RegExp_Execute_Matches( _
+    Matches)
+    
+    If Matches Is Nothing Then
+        tdResult.innerText = "Matches: Nothing"
+        Exit Sub
+    ElseIf Matches.Count = 0 Then
+        tdResult.innerText = "Matches: No item"
+        Exit Sub
+    Else
+        'nop
+    End If
+    
+    Dim Html
+    Html = "<table>"
+    Html = Html & "<tr>"
+    Html = Html & "<th>No.</th>"
+    Html = Html & "<th>FirstIndex</th>"
+    Html = Html & "<th>Length</th>"
+    Html = Html & "<th>Value</th>"
+    
+    If Matches.Item(0).Submatches Is Nothing Then
+        'nop
+    ElseIf Matches.Item(0).Submatches.Count = 0 Then
+        'nop
+    Else
+        Dim SubMatchIndex
+        For SubMatchIndex = 0 To Matches.Item(0).Submatches.Count - 1
+            Html = Html & "<td>Sub" & CStr(SubMatchIndex + 1) & "</td>"
+        Next
+    End If
+    
+    Html = Html & "</tr>"
+    
+    Dim Match
+    Dim MatchIndex
+    For MatchIndex = 0 To Matches.Count - 1
+        Set Match = Matches.Item(MatchIndex)
+        Html = Html & Test_RegExp_Execute_Match(MatchIndex, Match)
+    Next
+    
+    Html = Html & "</table>"
+    
+    tdResult.innerHtml = Html
+End Sub
+
+Private Function Test_RegExp_Execute_Match(MatchIndex, Match)
+    Dim Html
+    Html = "<tr>"
+    Html = Html & "<td>" & CStr(MatchIndex) & "</td>"
+    Html = Html & "<td>" & CStr(Match.FirstIndex) & "</td>"
+    Html = Html & "<td>" & CStr(Match.Length) & "</td>"
+    Html = Html & "<td>" & Match.Value & "</td>"
+    Html = Html & Test_RegExp_Execute_SubMatches(Match.SubMatches)
+    Html = Html & "</tr>"
+    Test_RegExp_Execute_Match = Html
+End Function
+
+Private Function Test_RegExp_Execute_SubMatches( _
+    SubMatches)
+    
+    If SubMatches Is Nothing Then
+        Exit Function
+    ElseIf SubMatches.Count = 0 Then
+        Exit Function
+    Else
+        'nop
+    End If
+    
+    Dim Html
+    
+    Dim Index
+    Dim SubMatch
+    For Index = 0 To SubMatches.Count - 1
+        SubMatch = SubMatches.Item(Index)
+        Html = Html & "<td>" & SubMatch & "</td>"
+    Next
+    
+    Test_RegExp_Execute_SubMatches = Html
+End Function
+-->
+</script>
+
+</head>
+
+<body style="margin:0">
+
+<table width="100%">
+
+<colgroup>
+<col width="100pt"></col>
+<col></col>
+</colgroup>
+
+<tr>
+<td>SourceString:</td>
+<td><textarea id="textareaSourceString" rows="10" cols="50" style="width:100%"></textarea></td>
+</tr>
+
+<tr>
+<td>ReplaceString:</td>
+<td><input id="inputReplaceString" style="width:100%" /></td>
+</tr>
+
+<tr>
+<td>Pattern:</td>
+<td><input id="inputPattern" style="width:100%" /></td>
+</tr>
+
+<tr>
+<td>IgnoreCase:</td>
+<td><input id="inputIgnoreCase" type="checkbox" /></td>
+</tr>
+
+<tr>
+<td>Global:</td>
+<td><input id="inputGlobalMatches" type="checkbox" /></td>
+</tr>
+
+<tr>
+<td>MultiLine:</td>
+<td><input id="inputMultiLine" type="checkbox" /></td>
+</tr>
+
+<tr>
+<td></td>
+<td>
+<button id="btnTest">Test</button>
+<button id="btnReplace">Replace</button>
+<button id="btnExecute">Execute</button>
+</td>
+</tr>
+
+<tr>
+<td>Result:</td>
+<td id="tdResult"></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>
