@@ -1,0 +1,21 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_RegExp_Test">
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript">
+            call Test_RegExp_Test
+        </script>
+    </job>
+    <job id="Test_RegExp_Replace">
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript">
+            call Test_RegExp_Replace
+        </script>
+    </job>
+    <job id="Test_RegExp_Execute">
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript">
+            call Test_RegExp_Execute
+        </script>
+    </job>
+</package>
