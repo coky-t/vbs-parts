@@ -94,7 +94,7 @@ End Function
 '   Optional. The value is False if the search is case-sensitive,
 '   True if it is not. Default is False.
 '
-' GlobalMatches:
+' GlobalMatch:
 '   Optional. The value is True if the search applies to the entire string,
 '   False if it does not. Default is False.
 '
@@ -110,7 +110,7 @@ Public Function RegExp_Execute( _
     SourceString, _
     Pattern, _
     IgnoreCase, _
-    GlobalMatches, _
+    GlobalMatch, _
     MultiLine, _
     RegExpObject)
     
@@ -119,7 +119,7 @@ Public Function RegExp_Execute( _
     With GetRegExp(RegExpObject)
         .Pattern = Pattern
         .IgnoreCase = IgnoreCase
-        .Global = GlobalMatches
+        .Global = GlobalMatch
         .MultiLine = MultiLine
         Set RegExp_Execute = .Execute(SourceString)
     End With
@@ -130,7 +130,7 @@ Public Function RegExp_Replace( _
     ReplaceString, _
     Pattern, _
     IgnoreCase, _
-    GlobalMatches, _
+    GlobalMatch, _
     MultiLine, _
     RegExpObject)
     
@@ -139,7 +139,7 @@ Public Function RegExp_Replace( _
     With GetRegExp(RegExpObject)
         .Pattern = Pattern
         .IgnoreCase = IgnoreCase
-        .Global = GlobalMatches
+        .Global = GlobalMatch
         .MultiLine = MultiLine
         RegExp_Replace = .Replace(SourceString, ReplaceString)
     End With
@@ -219,8 +219,8 @@ Sub btnReplace_OnClick
     Dim IgnoreCase
     IgnoreCase = inputIgnoreCase.checked
     
-    Dim GlobalMatches
-    GlobalMatches = inputGlobalMatches.checked
+    Dim GlobalMatch
+    GlobalMatch = inputGlobalMatch.checked
     
     Dim MultiLine
     MultiLine = inputMultiLine.checked
@@ -232,7 +232,7 @@ Sub btnReplace_OnClick
             ReplaceString, _
             Pattern, _
             IgnoreCase, _
-            GlobalMatches, _
+            GlobalMatch, _
             MultiLine, _
             Nothing)
     
@@ -257,8 +257,8 @@ Sub btnExecute_OnClick
     Dim IgnoreCase
     IgnoreCase = inputIgnoreCase.checked
     
-    Dim GlobalMatches
-    GlobalMatches = inputGlobalMatches.checked
+    Dim GlobalMatch
+    GlobalMatch = inputGlobalMatch.checked
     
     Dim MultiLine
     MultiLine = inputMultiLine.checked
@@ -269,7 +269,7 @@ Sub btnExecute_OnClick
             SourceString, _
             Pattern, _
             IgnoreCase, _
-            GlobalMatches, _
+            GlobalMatch, _
             MultiLine, _
             Nothing)
     
@@ -392,7 +392,7 @@ End Function
 
 <tr>
 <td>Global:</td>
-<td><input id="inputGlobalMatches" type="checkbox" /></td>
+<td><input id="inputGlobalMatch" type="checkbox" /></td>
 </tr>
 
 <tr>
