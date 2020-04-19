@@ -34,6 +34,26 @@ Microsoft Scripting Runtime
 Microsoft ActiveX Data Objects X.X Library
 - [ADODB.Stream](https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/stream-object-ado)
 
+## File System
+
+### MFileSystem.bas - Create Folder
+
+- [Base](vbs/MFileSystem.vbs)
+
+#### Reference
+
+Microsoft Scripting Runtime
+- [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object)
+
+### MFolder.bas - Get Folders/Files
+
+- [Base](vbs/MFolder.vbs)
+
+#### Reference
+
+Microsoft Scripting Runtime
+- [Scripting.Folder](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/folder-object)
+
 ## Network
 
 ### MXMLHTTP.vbs - HTTP GET/POST
@@ -45,7 +65,7 @@ Microsoft ActiveX Data Objects X.X Library
 Microsoft XML, vX.X
 - [MSXML2.XMLHTTP](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms759148(v=vs.85))
 
-## Text Processing
+## Text String
 
 ### MRegExp.vbs - Regular Expression - Test/Execute/Replace
 

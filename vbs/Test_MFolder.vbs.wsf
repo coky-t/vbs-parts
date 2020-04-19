@@ -1,0 +1,15 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_GetFolders">
+        <script language="vbscript" src="MFolder.vbs" />
+        <script language="vbscript">
+            call Test_GetFolders
+        </script>
+    </job>
+    <job id="Test_GetFiles">
+        <script language="vbscript" src="MFolder.vbs" />
+        <script language="vbscript">
+            call Test_GetFiles
+        </script>
+    </job>
+</package>
