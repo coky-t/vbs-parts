@@ -12,7 +12,7 @@ vbs's code snippets, helper functions, mini tools
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object)
+- [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/z9ty6h50(v=vs.84))
 
 ### MFile.vbs - Read/Write Text File
 
@@ -22,7 +22,7 @@ Microsoft Scripting Runtime
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.File](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/file-object)
+- [Scripting.File](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1ft05taf(v=vs.84))
 
 ### MADODBStream.vbs - Read/Write Text/Binary File
 
@@ -43,7 +43,7 @@ Microsoft ActiveX Data Objects X.X Library
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object)
+- [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/z9ty6h50(v=vs.84))
 
 ### MFolder.bas - Get Folders/Files
 
@@ -52,7 +52,7 @@ Microsoft Scripting Runtime
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.Folder](https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/folder-object)
+- [Scripting.Folder](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1c87day3(v=vs.84))
 
 ## Network
 
