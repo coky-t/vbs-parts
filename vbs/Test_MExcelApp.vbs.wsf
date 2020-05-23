@@ -1,0 +1,15 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_GetOpenFileName">
+        <script language="vbscript" src="MExcelApp.vbs" />
+        <script language="vbscript">
+            call Test_GetOpenFileName
+        </script>
+    </job>
+    <job id="Test_GetSaveAsFileName">
+        <script language="vbscript" src="MExcelApp.vbs" />
+        <script language="vbscript">
+            call Test_GetSaveAsFileName
+        </script>
+    </job>
+</package>

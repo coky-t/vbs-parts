@@ -76,3 +76,14 @@ Microsoft XML, vX.X
 
 Microsoft VBScript Regular Expression 5.5
 - [VBScript_RegExp_55.RegExp](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/6wzad2b2(v=vs.84))
+
+## Dialog Box
+
+### MExcelApp.vbs - File Dialog Box
+
+- [Base](vbs/MExcelApp.vbs)
+
+#### Reference
+
+Microsoft Excel X.X Object Library
+- [Excel.Application](https://docs.microsoft.com/en-us/office/vba/api/excel.application(object))
