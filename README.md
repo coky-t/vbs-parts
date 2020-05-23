@@ -79,7 +79,7 @@ Microsoft VBScript Regular Expression 5.5
 
 ## Dialog Box
 
-### MExcelApp.vbs - File Dialog Box
+### MExcelApp.vbs - File/Folder Dialog Box
 
 - [Base](vbs/MExcelApp.vbs)
 
@@ -87,3 +87,4 @@ Microsoft VBScript Regular Expression 5.5
 
 Microsoft Excel X.X Object Library
 - [Excel.Application](https://docs.microsoft.com/en-us/office/vba/api/excel.application(object))
+- [Office.FileDialog](https://docs.microsoft.com/en-us/office/vba/api/office.filedialog)

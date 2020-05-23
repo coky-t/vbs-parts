@@ -12,4 +12,10 @@
             call Test_GetSaveAsFileName
         </script>
     </job>
+    <job id="Test_GetFolderName">
+        <script language="vbscript" src="MExcelApp.vbs" />
+        <script language="vbscript">
+            call Test_GetFolderName
+        </script>
+    </job>
 </package>
