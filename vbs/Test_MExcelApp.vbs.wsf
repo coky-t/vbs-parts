@@ -3,19 +3,19 @@
     <job id="Test_GetOpenFileName">
         <script language="vbscript" src="MExcelApp.vbs" />
         <script language="vbscript">
-            call Test_GetOpenFileName
+            Call Test_GetOpenFileName
         </script>
     </job>
     <job id="Test_GetSaveAsFileName">
         <script language="vbscript" src="MExcelApp.vbs" />
         <script language="vbscript">
-            call Test_GetSaveAsFileName
+            Call Test_GetSaveAsFileName
         </script>
     </job>
     <job id="Test_GetFolderName">
         <script language="vbscript" src="MExcelApp.vbs" />
         <script language="vbscript">
-            call Test_GetFolderName
+            Call Test_GetFolderName
         </script>
     </job>
 </package>

@@ -3,13 +3,13 @@
     <job id="Test_TextFileW">
         <script language="vbscript" src="MFile.vbs" />
         <script language="vbscript">
-            call Test_TextFileW
+            Call Test_TextFileW
         </script>
     </job>
     <job id="Test_TextFileA">
         <script language="vbscript" src="MFile.vbs" />
         <script language="vbscript">
-            call Test_TextFileA
+            Call Test_TextFileA
         </script>
     </job>
 </package>

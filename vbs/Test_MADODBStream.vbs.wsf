@@ -3,31 +3,31 @@
     <job id="Test_TextFileW">
         <script language="vbscript" src="MADODBStream.vbs" />
         <script language="vbscript">
-            call Test_TextFileW
+            Call Test_TextFileW
         </script>
     </job>
     <job id="Test_TextFileA">
         <script language="vbscript" src="MADODBStream.vbs" />
         <script language="vbscript">
-            call Test_TextFileA
+            Call Test_TextFileA
         </script>
     </job>
     <job id="Test_TextFileUTF8">
         <script language="vbscript" src="MADODBStream.vbs" />
         <script language="vbscript">
-            call Test_TextFileUTF8
+            Call Test_TextFileUTF8
         </script>
     </job>
     <job id="Test_TextFileUTF8_withoutBOM">
         <script language="vbscript" src="MADODBStream.vbs" />
         <script language="vbscript">
-            call Test_TextFileUTF8_withoutBOM
+            Call Test_TextFileUTF8_withoutBOM
         </script>
     </job>
     <job id="Test_BinaryFile">
         <script language="vbscript" src="MADODBStream.vbs" />
         <script language="vbscript">
-            call Test_BinaryFile
+            Call Test_BinaryFile
         </script>
     </job>
 </package>

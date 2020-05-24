@@ -3,13 +3,13 @@
     <job id="Test_GetFolders">
         <script language="vbscript" src="MFolder.vbs" />
         <script language="vbscript">
-            call Test_GetFolders
+            Call Test_GetFolders
         </script>
     </job>
     <job id="Test_GetFiles">
         <script language="vbscript" src="MFolder.vbs" />
         <script language="vbscript">
-            call Test_GetFiles
+            Call Test_GetFiles
         </script>
     </job>
 </package>

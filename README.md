@@ -36,7 +36,7 @@ Microsoft ActiveX Data Objects X.X Library
 
 ## File System
 
-### MFileSystem.bas - Create Folder
+### MFileSystem.vbs - Create Folder
 
 - [Base](vbs/MFileSystem.vbs)
 
@@ -45,7 +45,7 @@ Microsoft ActiveX Data Objects X.X Library
 Microsoft Scripting Runtime
 - [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/z9ty6h50(v=vs.84))
 
-### MFolder.bas - Get Folders/Files
+### MFolder.vbs - Get Folders/Files
 
 - [Base](vbs/MFolder.vbs)
 
