@@ -77,6 +77,14 @@ Microsoft XML, vX.X
 Microsoft VBScript Regular Expression 5.5
 - [VBScript_RegExp_55.RegExp](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/6wzad2b2(v=vs.84))
 
+### MHTMLDocument.vbs - JSON - Parse
+
+- [Base](vbs/MHTMLDocument.vbs)
+
+#### Reference
+
+
+
 ## Dialog Box
 
 ### MExcelApp.vbs - File/Folder Dialog Box
