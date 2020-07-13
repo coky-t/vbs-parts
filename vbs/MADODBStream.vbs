@@ -28,7 +28,7 @@ Option Explicit
 ' - ADODB.Stream
 '
 
-Dim ADODBStream
+Private ADODBStream
 
 '
 ' === TextFile ===
@@ -347,7 +347,7 @@ Private Sub WriteBinaryFileT( _
     
     Dim Buf
     Dim Index
-    For Index = 1 to LenB(Buffer)
+    For Index = 1 To LenB(Buffer)
         Buf = Buf & ChrW(AscB(MidB(Buffer, Index, 1)))
     Next
     If Position = 0 Then
