@@ -38,7 +38,7 @@ Public Const Scripting_ForReading = 1
 Public Const Scripting_ForWriting = 2
 Public Const Scripting_ForAppending = 8
 
-Dim FileSystemObject
+Private FileSystemObject
 
 '
 ' === TextFile ===

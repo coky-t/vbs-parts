@@ -38,7 +38,7 @@ Public Const MFileSystem_ForReading = 1
 Public Const MFileSystem_ForWriting = 2
 Public Const MFileSystem_ForAppending = 8
 
-Dim FileSystemObject
+Private FileSystemObject
 
 '
 ' === TextFile ===
