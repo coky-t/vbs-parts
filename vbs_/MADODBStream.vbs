@@ -346,7 +346,23 @@ Private Sub MADODBStream_WriteBinaryFileT( _
     
     If FileName = "" Then Exit Sub
     
-    'WriteAndSaveToFile FileName, Buffer, Position
+    WriteAndSaveToFile FileName, Buffer, Position
+End Sub
+
+Public Sub MADODBStream_WriteBinaryFileFromString(FileName, Buffer)
+    MADODBStream_WriteBinaryFileFromStringT FileName, Buffer, 0
+End Sub
+
+Public Sub MADODBStream_AppendBinaryFileFromString(FileName, Buffer)
+    MADODBStream_WriteBinaryFileFromStringT FileName, Buffer, -1
+End Sub
+
+Private Sub MADODBStream_WriteBinaryFileFromStringT( _
+    FileName, _
+    Buffer, _
+    Position)
+    
+    If FileName = "" Then Exit Sub
     
     Dim Buf
     Dim Index
@@ -533,7 +549,7 @@ Private Sub Test_MADODBStream_BinaryFile()
         Buffer = Buffer & ChrB(Index)
     Next
     
-    MADODBStream_WriteBinaryFile FileName, Buffer
+    MADODBStream_WriteBinaryFileFromString FileName, Buffer
     
     Dim Data
     Data = MADODBStream_ReadBinaryFile(FileName, 0)
@@ -551,7 +567,7 @@ Private Sub Test_MADODBStream_BinaryFile()
     
     MADODBStream_Debug_Print Text
     
-    MADODBStream_AppendBinaryFile FileName, Buffer
+    MADODBStream_AppendBinaryFileFromString FileName, Buffer
     Data = MADODBStream_ReadBinaryFile(FileName, 0)
     
     Text = ""
