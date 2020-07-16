@@ -30,4 +30,22 @@
             Call Test_MADODBStream_BinaryFile
         </script>
     </job>
+    <job id="Test_GetBinaryGetTextA">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinaryGetTextA
+        </script>
+    </job>
+    <job id="Test_GetBinaryGetTextW">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinaryGetTextW
+        </script>
+    </job>
+    <job id="Test_GetBinaryGetTextUTF8">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinaryGetTextUTF8
+        </script>
+    </job>
 </package>

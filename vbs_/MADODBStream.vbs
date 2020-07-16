@@ -123,9 +123,9 @@ Public Sub MADODBStream_WriteTextFileUTF8( _
     MADODBStream_WriteTextFile FileName, Text, 0, "utf-8"
     
     If Not BOM Then
-        Dim Data
-        Data = MADODBStream_ReadBinaryFile(FileName, 3)
-        MADODBStream_WriteBinaryFile FileName, Data
+        Dim Binary
+        Binary = MADODBStream_ReadBinaryFile(FileName, 3)
+        MADODBStream_WriteBinaryFile FileName, Binary, 0
     End If
 End Sub
 
@@ -145,9 +145,9 @@ Public Sub MADODBStream_AppendTextFileUTF8( _
     MADODBStream_WriteTextFile FileName, Text, -1, "utf-8"
     
     If Not BOM Then
-        Dim Data
-        Data = MADODBStream_ReadBinaryFile(FileName, 3)
-        MADODBStream_WriteBinaryFile FileName, Data
+        Dim Binary
+        Binary = MADODBStream_ReadBinaryFile(FileName, 3)
+        MADODBStream_WriteBinaryFile FileName, Binary, 0
     End If
 End Sub
 
@@ -327,56 +327,55 @@ End Function
 '   You can save to any valid local location, or any location you have
 '   access to via a UNC value.
 '
-' Buffer:
+' Binary:
 '   Required. A Variant that contains an array of bytes to be written.
 '
+' Position:
+'   Optional. Sets a Long value that specifies the offset, in number of
+'   bytes, of the current position from the beginning of the stream.
+'   The default is 0, which represents the first byte in the stream.
+'
 
-Public Sub MADODBStream_WriteBinaryFile(FileName, Buffer)
-    MADODBStream_WriteBinaryFileT FileName, Buffer, 0
-End Sub
-
-Public Sub MADODBStream_AppendBinaryFile(FileName, Buffer)
-    MADODBStream_WriteBinaryFileT FileName, Buffer, -1
-End Sub
-
-Private Sub MADODBStream_WriteBinaryFileT( _
+Public Sub MADODBStream_WriteBinaryFile( _
     FileName, _
-    Buffer, _
+    Binary, _
     Position)
     
     If FileName = "" Then Exit Sub
     
-    WriteAndSaveToFile FileName, Buffer, Position
+    WriteAndSaveToFile FileName, Binary, Position
 End Sub
 
-Public Sub MADODBStream_WriteBinaryFileFromString(FileName, Buffer)
-    MADODBStream_WriteBinaryFileFromStringT FileName, Buffer, 0
+Public Sub MADODBStream_AppendBinaryFile(FileName, Binary)
+    MADODBStream_WriteBinaryFile FileName, Binary, -1
 End Sub
 
-Public Sub MADODBStream_AppendBinaryFileFromString(FileName, Buffer)
-    MADODBStream_WriteBinaryFileFromStringT FileName, Buffer, -1
-End Sub
-
-Private Sub MADODBStream_WriteBinaryFileFromStringT( _
-    FileName, _
-    Buffer, _
-    Position)
-    
+Public Sub MADODBStream_WriteBinaryFileFromStringB(FileName, StringB)
     If FileName = "" Then Exit Sub
     
-    Dim Buf
+    Dim StringWB
+    StringWB = GetStringWBFromStringB(StringB)
+    
+    MADODBStream_WriteTextFileA FileName, StringWB
+End Sub
+
+Public Sub MADODBStream_AppendBinaryFileFromStringB(FileName, StringB)
+    If FileName = "" Then Exit Sub
+    
+    Dim StringWB
+    StringWB = GetStringWBFromStringB(StringB)
+    
+    MADODBStream_AppendTextFileA FileName, StringWB
+End Sub
+
+Private Function GetStringWBFromStringB(StringB)
+    Dim StringWB
     Dim Index
-    For Index = 1 To LenB(Buffer)
-        Buf = Buf & ChrW(AscB(MidB(Buffer, Index, 1)))
+    For Index = 1 To LenB(StringB)
+        StringWB = StringWB & ChrW(AscB(MidB(StringB, Index, 1)))
     Next
-    If Position = 0 Then
-        MADODBStream_WriteTextFileA FileName, Buf
-    ElseIf Position < 0 Then
-        MADODBStream_AppendTextFileA FileName, Buf
-    Else
-        ' To Do
-    End If
-End Sub
+    GetStringWBFromStringB = StringWB
+End Function
 
 '
 ' --- BinaryFile ---
@@ -426,7 +425,7 @@ End Function
 '   You can save to any valid local location, or any location you have
 '   access to via a UNC value.
 '
-' Buffer:
+' Binary:
 '   Required. A Variant that contains an array of bytes to be written.
 '
 ' Position:
@@ -437,7 +436,7 @@ End Function
 
 Public Sub WriteAndSaveToFile( _
     FileName, _
-    Buffer, _
+    Binary, _
     Position)
     
     On Error Resume Next
@@ -456,11 +455,99 @@ Public Sub WriteAndSaveToFile( _
                 .Position = .Size
             End If
         End If
-        .Write Buffer
+        .Write Binary
         .SaveToFile FileName, 2 'ADODB.adSaveCreateOverWrite
         .Close
     End With
 End Sub
+
+'
+' --- Text / Binary ---
+'
+
+'
+' GetTextFromBinary
+' - Return a string value that contains the text in characters.
+'
+
+'
+' Binary:
+'   Required. A Variant that contains an array of bytes.
+'
+' Charset:
+'   Required. A String value that specifies the character set into
+'   which the contents of the Stream will be translated.
+'   The default value is Unicode.
+'   Allowed values are typical strings passed over the interface as
+'   Internet character set names (for example, "iso-8859-1", "Windows-1252",
+'   and so on).
+'   For a list of the character set names that are known by a system,
+'   see the subkeys of HKEY_CLASSES_ROOT\MIME\Database\Charset
+'   in the Windows Registry.
+'
+
+Public Function GetTextFromBinary(Binary, Charset)
+    On Error Resume Next
+    
+    With GetADODBStream()
+        .Open
+        
+        .Type = 1 'ADODB.adTypeBinary
+        .Write Binary
+        
+        .Position = 0
+        .Type = 2 'ADODB.adTypeText
+        .Charset = Charset
+        GetTextFromBinary = .ReadText
+        
+        .Close
+    End With
+End Function
+
+'
+' GetBinaryFromText
+' - Return a variant that contains an array of bytes.
+'
+
+'
+' Text:
+'   Required. A String value that contains the text in characters.
+'
+' Charset:
+'   Required. A String value that specifies the character set into
+'   which the contents of the Stream will be translated.
+'   The default value is Unicode.
+'   Allowed values are typical strings passed over the interface as
+'   Internet character set names (for example, "iso-8859-1", "Windows-1252",
+'   and so on).
+'   For a list of the character set names that are known by a system,
+'   see the subkeys of HKEY_CLASSES_ROOT\MIME\Database\Charset
+'   in the Windows Registry.
+'
+
+Public Function GetBinaryFromText(Text, Charset)
+    On Error Resume Next
+    
+    With GetADODBStream()
+        .Open
+        
+        .Type = 2 'ADODB.adTypeText
+        .Charset = Charset
+        .WriteText Text
+        
+        .Position = 0
+        .Type = 1 'ADODB.adTypeBinary
+        Select Case Charset
+        Case "unicode"
+            .Position = 2
+        Case "utf-8"
+            .Position = 3
+        End Select
+        GetBinaryFromText = .Read
+        
+        .Close
+    End With
+End Function
 
 '
 ' --- Test ---
@@ -543,45 +630,79 @@ Private Sub Test_MADODBStream_BinaryFile()
     FileName = MADODBStream_GetSaveAsFileName()
     If FileName = "" Then Exit Sub
     
-    Dim Buffer
+    Dim StringB
+    Dim Binary
+    
+    StringB = GetTestStringB()
+    MADODBStream_WriteBinaryFileFromStringB FileName, StringB
+    Binary = MADODBStream_ReadBinaryFile(FileName, 0)
+    MADODBStream_Debug_Print_StringB Binary
+    
+    StringB = GetTestStringB()
+    MADODBStream_AppendBinaryFileFromStringB FileName, StringB
+    Binary = MADODBStream_ReadBinaryFile(FileName, 0)
+    MADODBStream_Debug_Print_StringB Binary
+End Sub
+
+Private Function GetTestStringB()
+    Dim StringB
     Dim Index
     For Index = 0 To 255
-        Buffer = Buffer & ChrB(Index)
+        StringB = StringB & ChrB(Index)
     Next
+    GetTestStringB = StringB
+End Function
+
+Private Sub Test_GetBinaryGetTextA()
+    Test_GetBinaryGetTextT "iso-8859-1"
+End Sub
+
+Private Sub Test_GetBinaryGetTextW()
+    Test_GetBinaryGetTextT "unicode"
+End Sub
+
+Private Sub Test_GetBinaryGetTextUTF8()
+    Test_GetBinaryGetTextT "utf-8"
+End Sub
+
+Private Sub Test_GetBinaryGetTextT(Charset)
+    Dim Text0
+    Text0 = "abcdefghijklmnopqrstuvwxyz"
     
-    MADODBStream_WriteBinaryFileFromString FileName, Buffer
-    
-    Dim Data
-    Data = MADODBStream_ReadBinaryFile(FileName, 0)
+    Dim Binary
+    Binary = GetBinaryFromText(Text0, Charset)
+    MADODBStream_Debug_Print_StringB Binary
     
     Dim Text
-    Dim Index1
-    For Index1 = 1 To LenB(Data) Step 16
-        Dim Index2
-        For Index2 = Index1 To Index1 + 15
-            Text = _
-                Text & Right("0" & Hex(AscB(MidB(Data, Index2, 1))), 2) & " "
-        Next
-        Text = Text & vbNewLine
-    Next
-    
-    MADODBStream_Debug_Print Text
-    
-    MADODBStream_AppendBinaryFileFromString FileName, Buffer
-    Data = MADODBStream_ReadBinaryFile(FileName, 0)
-    
-    Text = ""
-    For Index1 = 1 To LenB(Data) Step 16
-        For Index2 = Index1 To Index1 + 15
-            Text = _
-                Text & Right("0" & Hex(AscB(MidB(Data, Index2, 1))), 2) & " "
-        Next
-        Text = Text & vbNewLine
-    Next
-    
-    MADODBStream_Debug_Print "---"
+    Text = GetTextFromBinary(Binary, Charset)
     MADODBStream_Debug_Print Text
 End Sub
+
+Private Sub MADODBStream_Debug_Print_StringB(StringB)
+    Dim Text
+    Dim Index1
+    Dim Index2
+    For Index1 = 1 To LenB(StringB) Step 16
+        For Index2 = Index1 To MinL(Index1 + 15, LenB(StringB))
+            Text = _
+                Text & _
+                Right("0" & Hex(AscB(MidB(StringB, Index2, 1))), 2) & " "
+        Next
+        Text = Text & vbNewLine
+    Next
+    
+    MADODBStream_Debug_Print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
+    MADODBStream_Debug_Print Text
+    MADODBStream_Debug_Print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
+End Sub
+
+Private Function MinL(Value1, Value2)
+    If Value1 < Value2 Then
+        MinL = Value1
+    Else
+        MinL = Value2
+    End If
+End Function
 
 Private Function MADODBStream_GetSaveAsFileName()
     MADODBStream_GetSaveAsFileName = InputBox("GetSaveAsFileName")
