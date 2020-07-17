@@ -1,0 +1,9 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_HexAndBase64">
+        <script language="vbscript" src="MXMLDOM.vbs" />
+        <script language="vbscript">
+            Call Test_HexAndBase64
+        </script>
+    </job>
+</package>

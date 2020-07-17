@@ -85,6 +85,16 @@ Microsoft VBScript Regular Expression 5.5
 
 
 
+### MXMLDOM.vbs - Base64/Binary, Hex/Binary - Encode/Decode
+
+- [Base](vbs/MXMLDOM.vbs)
+
+#### Reference
+
+Microsoft XML, vX.X
+- [MSXML2.DOMDocument](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms764730(v%3dvs.85))
+- [XDR Schema Data Types](https://docs.microsoft.com/en-us/previous-versions/ms256121(v=vs.85))
+
 ## Dialog Box
 
 ### MExcelApp.vbs - File/Folder Dialog Box
