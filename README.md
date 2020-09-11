@@ -106,3 +106,9 @@ Microsoft XML, vX.X
 Microsoft Excel X.X Object Library
 - [Excel.Application](https://docs.microsoft.com/en-us/office/vba/api/excel.application(object))
 - [Office.FileDialog](https://docs.microsoft.com/en-us/office/vba/api/office.filedialog)
+
+## Tools
+
+### SpdxLicenseText.vbs - RegExp Matching Pattern Generator
+
+- [Base](vbs/SpdxLicenseText.vbs)
