@@ -259,10 +259,10 @@ Sub btnExecute_OnClick
             GlobalMatch, _
             MultiLine)
     
-    Test_RegExp_Execute_Matches Matches
+    Debug_Print_Matches Matches
 End Sub
 
-Private Sub Test_RegExp_Execute_Matches( _
+Private Sub Debug_Print_Matches( _
     Matches)
     
     If Matches Is Nothing Then
@@ -300,7 +300,7 @@ Private Sub Test_RegExp_Execute_Matches( _
     Dim MatchIndex
     For MatchIndex = 0 To Matches.Count - 1
         Set Match = Matches.Item(MatchIndex)
-        Html = Html & Test_RegExp_Execute_Match(MatchIndex, Match)
+        Html = Html & GetHtml_From_Match(MatchIndex, Match)
     Next
     
     Html = Html & "</table>"
@@ -308,19 +308,19 @@ Private Sub Test_RegExp_Execute_Matches( _
     tdResult.innerHtml = Html
 End Sub
 
-Private Function Test_RegExp_Execute_Match(MatchIndex, Match)
+Private Function GetHtml_From_Match(MatchIndex, Match)
     Dim Html
     Html = "<tr>"
     Html = Html & "<td>" & CStr(MatchIndex) & "</td>"
     Html = Html & "<td>" & CStr(Match.FirstIndex) & "</td>"
     Html = Html & "<td>" & CStr(Match.Length) & "</td>"
     Html = Html & "<td>" & Match.Value & "</td>"
-    Html = Html & Test_RegExp_Execute_SubMatches(Match.SubMatches)
+    Html = Html & GetHtml_From_SubMatches(Match.SubMatches)
     Html = Html & "</tr>"
-    Test_RegExp_Execute_Match = Html
+    GetHtml_From_Match = Html
 End Function
 
-Private Function Test_RegExp_Execute_SubMatches( _
+Private Function GetHtml_From_SubMatches( _
     SubMatches)
     
     If SubMatches Is Nothing Then
@@ -340,7 +340,7 @@ Private Function Test_RegExp_Execute_SubMatches( _
         Html = Html & "<td>" & SubMatch & "</td>"
     Next
     
-    Test_RegExp_Execute_SubMatches = Html
+    GetHtml_From_SubMatches = Html
 End Function
 -->
 </script>
