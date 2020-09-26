@@ -2,18 +2,24 @@
 <package>
     <job id="Test_GetOpenFileName">
         <script language="vbscript" src="MExcelApp.vbs" />
+        <script language="vbscript" src="Test_MExcelApp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetOpenFileName
         </script>
     </job>
     <job id="Test_GetSaveAsFileName">
         <script language="vbscript" src="MExcelApp.vbs" />
+        <script language="vbscript" src="Test_MExcelApp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetSaveAsFileName
         </script>
     </job>
     <job id="Test_GetFolderName">
         <script language="vbscript" src="MExcelApp.vbs" />
+        <script language="vbscript" src="Test_MExcelApp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetFolderName
         </script>

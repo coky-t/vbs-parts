@@ -1,43 +1,49 @@
 <?XML version="1.0" standalone="yes" ?>
 <package>
-    <job id="Test_ParseJsonText">
-        <script language="vbscript" src="MHTMLDocument.vbs" />
-        <script language="vbscript">
-            Call Test_ParseJsonText
-        </script>
-    </job>
     <job id="Test_ParseJsonText1">
         <script language="vbscript" src="MHTMLDocument.vbs" />
+        <script language="vbscript" src="Test_MHTMLDocument.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_ParseJsonText1
         </script>
     </job>
     <job id="Test_ParseJsonText2">
         <script language="vbscript" src="MHTMLDocument.vbs" />
+        <script language="vbscript" src="Test_MHTMLDocument.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_ParseJsonText2
         </script>
     </job>
     <job id="Test_ParseJsonText3">
         <script language="vbscript" src="MHTMLDocument.vbs" />
+        <script language="vbscript" src="Test_MHTMLDocument.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_ParseJsonText3
         </script>
     </job>
     <job id="Test_ParseJsonText4">
         <script language="vbscript" src="MHTMLDocument.vbs" />
+        <script language="vbscript" src="Test_MHTMLDocument.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_ParseJsonText4
         </script>
     </job>
     <job id="Test_ParseJsonText5">
         <script language="vbscript" src="MHTMLDocument.vbs" />
+        <script language="vbscript" src="Test_MHTMLDocument.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_ParseJsonText5
         </script>
     </job>
     <job id="Test_ParseJsonText6">
         <script language="vbscript" src="MHTMLDocument.vbs" />
+        <script language="vbscript" src="Test_MHTMLDocument.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_ParseJsonText6
         </script>

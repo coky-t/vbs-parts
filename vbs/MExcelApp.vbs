@@ -157,29 +157,3 @@ Public Function GetFolderName(Title)
         End With
     End With
 End Function
-
-'
-' --- Test ---
-'
-
-Private Sub Test_GetOpenFileName()
-    Dim FileName
-    FileName = GetOpenFileName("", 0, "")
-    Debug_Print FileName
-End Sub
-
-Private Sub Test_GetSaveAsFileName()
-    Dim FileName
-    FileName = GetSaveAsFileName("", "", 0, "")
-    Debug_Print FileName
-End Sub
-
-Private Sub Test_GetFolderName()
-    Dim FolderName
-    FolderName = GetFolderName("")
-    Debug_Print FolderName
-End Sub
-
-Private Sub Debug_Print(Str)
-    WScript.Echo Str
-End Sub

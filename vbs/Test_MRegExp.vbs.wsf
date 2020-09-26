@@ -2,18 +2,25 @@
 <package>
     <job id="Test_RegExp_Test">
         <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_MRegExp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_RegExp_Test
         </script>
     </job>
     <job id="Test_RegExp_Replace">
         <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_MRegExp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_RegExp_Replace
         </script>
     </job>
     <job id="Test_RegExp_Execute">
         <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_MRegExp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
         <script language="vbscript">
             Call Test_RegExp_Execute
         </script>

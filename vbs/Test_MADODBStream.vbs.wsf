@@ -2,48 +2,69 @@
 <package>
     <job id="Test_TextFileW">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_TextFileW
         </script>
     </job>
     <job id="Test_TextFileA">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_TextFileA
         </script>
     </job>
     <job id="Test_TextFileUTF8">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_TextFileUTF8
         </script>
     </job>
     <job id="Test_TextFileUTF8_withoutBOM">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_TextFileUTF8_withoutBOM
         </script>
     </job>
     <job id="Test_BinaryFile">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
+        <script language="vbscript" src="TestBinary.vbs" />
         <script language="vbscript">
             Call Test_BinaryFile
         </script>
     </job>
-    <job id="Test_GetBinaryGetTextA">
-        <script language="vbscript" src="MADODBStream.vbs" />
-        <script language="vbscript">
-            Call Test_GetBinaryGetTextA
-        </script>
-    </job>
     <job id="Test_GetBinaryGetTextW">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
         <script language="vbscript">
             Call Test_GetBinaryGetTextW
         </script>
     </job>
+    <job id="Test_GetBinaryGetTextA">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinaryGetTextA
+        </script>
+    </job>
     <job id="Test_GetBinaryGetTextUTF8">
         <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="Test_MADODBStream.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
         <script language="vbscript">
             Call Test_GetBinaryGetTextUTF8
         </script>

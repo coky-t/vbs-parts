@@ -1,31 +1,37 @@
 <?XML version="1.0" standalone="yes" ?>
 <package>
-    <job id="Test_GetMatchingPattern">
-        <script language="vbscript" src="SpdxLicenseText.vbs" />
-        <script language="vbscript">
-            Call Test_GetMatchingPattern
-        </script>
-    </job>
     <job id="Test_GetMatchingPattern_Apache20">
         <script language="vbscript" src="SpdxLicenseText.vbs" />
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_SpdxLicenseText.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetMatchingPattern_Apache20
         </script>
     </job>
     <job id="Test_GetMatchingPattern_MIT">
         <script language="vbscript" src="SpdxLicenseText.vbs" />
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_SpdxLicenseText.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetMatchingPattern_MIT
         </script>
     </job>
     <job id="Test_GetMatchingPattern_Chars">
         <script language="vbscript" src="SpdxLicenseText.vbs" />
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_SpdxLicenseText.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetMatchingPattern_Chars
         </script>
     </job>
     <job id="Test_GetMatchingPattern_Words">
         <script language="vbscript" src="SpdxLicenseText.vbs" />
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_SpdxLicenseText.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_GetMatchingPattern_Words
         </script>

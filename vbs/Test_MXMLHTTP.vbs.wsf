@@ -2,12 +2,16 @@
 <package>
     <job id="Test_HttpGet">
         <script language="vbscript" src="MXMLHTTP.vbs" />
+        <script language="vbscript" src="Test_MXMLHTTP.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_HttpGet
         </script>
     </job>
     <job id="Test_HttpPost">
         <script language="vbscript" src="MXMLHTTP.vbs" />
+        <script language="vbscript" src="Test_MXMLHTTP.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_HttpPost
         </script>

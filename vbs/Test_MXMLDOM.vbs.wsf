@@ -2,6 +2,10 @@
 <package>
     <job id="Test_HexAndBase64">
         <script language="vbscript" src="MXMLDOM.vbs" />
+        <script language="vbscript" src="Test_MXMLDOM.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
+        <script language="vbscript" src="TestBinary.vbs" />
         <script language="vbscript">
             Call Test_HexAndBase64
         </script>

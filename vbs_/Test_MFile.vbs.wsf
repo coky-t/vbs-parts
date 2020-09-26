@@ -1,15 +1,19 @@
 <?XML version="1.0" standalone="yes" ?>
 <package>
-    <job id="Test_MFile_TextFileW">
+    <job id="Test_TextFileW">
         <script language="vbscript" src="MFile.vbs" />
+        <script language="vbscript" src="Test_MFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
-            Call Test_MFile_TextFileW
+            Call Test_TextFileW
         </script>
     </job>
-    <job id="Test_MFile_TextFileA">
+    <job id="Test_TextFileA">
         <script language="vbscript" src="MFile.vbs" />
+        <script language="vbscript" src="Test_MFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
-            Call Test_MFile_TextFileA
+            Call Test_TextFileA
         </script>
     </job>
 </package>

@@ -3,6 +3,8 @@
     <job id="Test_RegExp_ParamsList_Test">
         <script language="vbscript" src="MRegExp.vbs" />
         <script language="vbscript" src="MRegExpEx.vbs" />
+        <script language="vbscript" src="Test_MRegExpEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_RegExp_ParamsList_Test
         </script>
@@ -10,6 +12,8 @@
     <job id="Test_RegExp_Params_Test">
         <script language="vbscript" src="MRegExp.vbs" />
         <script language="vbscript" src="MRegExpEx.vbs" />
+        <script language="vbscript" src="Test_MRegExpEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_RegExp_Params_Test
         </script>
@@ -17,6 +21,8 @@
     <job id="Test_RegExp_ParamsList_Replace">
         <script language="vbscript" src="MRegExp.vbs" />
         <script language="vbscript" src="MRegExpEx.vbs" />
+        <script language="vbscript" src="Test_MRegExpEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_RegExp_ParamsList_Replace
         </script>
@@ -24,6 +30,8 @@
     <job id="Test_RegExp_Params_Replace">
         <script language="vbscript" src="MRegExp.vbs" />
         <script language="vbscript" src="MRegExpEx.vbs" />
+        <script language="vbscript" src="Test_MRegExpEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
         <script language="vbscript">
             Call Test_RegExp_Params_Replace
         </script>
@@ -31,6 +39,9 @@
     <job id="Test_RegExp_ParamsList_Execute">
         <script language="vbscript" src="MRegExp.vbs" />
         <script language="vbscript" src="MRegExpEx.vbs" />
+        <script language="vbscript" src="Test_MRegExpEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
         <script language="vbscript">
             Call Test_RegExp_ParamsList_Execute
         </script>
@@ -38,6 +49,9 @@
     <job id="Test_RegExp_Params_Execute">
         <script language="vbscript" src="MRegExp.vbs" />
         <script language="vbscript" src="MRegExpEx.vbs" />
+        <script language="vbscript" src="Test_MRegExpEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
         <script language="vbscript">
             Call Test_RegExp_Params_Execute
         </script>

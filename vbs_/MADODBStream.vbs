@@ -462,6 +462,62 @@ Public Sub WriteAndSaveToFile( _
 End Sub
 
 '
+' === Text / Binary ===
+'
+
+'
+' GetTextWFromBinary
+' - Return a string value (Unicode) that contains the text in characters.
+'
+' GetTextAFromBinary
+' - Return a string value (ASCII) that contains the text in characters.
+'
+' GetTextUTF8FromBinary
+' - Return a string value (UTF-8) that contains the text in characters.
+'
+
+'
+' Binary:
+'   Required. A Variant that contains an array of bytes.
+'
+
+Public Function GetTextWFromBinary(Binary)
+    GetTextWFromBinary = GetTextFromBinary(Binary, "unicode")
+End Function
+
+Public Function GetTextAFromBinary(Binary)
+    GetTextAFromBinary = GetTextFromBinary(Binary, "iso-8859-1")
+End Function
+
+Public Function GetTextUTF8FromBinary(Binary)
+    GetTextUTF8FromBinary = GetTextFromBinary(Binary, "utf-8")
+End Function
+
+'
+' GetBinaryFromTextW
+' GetBinaryFromTextA
+' GetBinaryFromTextUTF8
+' - Return a variant that contains an array of bytes.
+'
+
+'
+' Text:
+'   Required. A String value that contains the text in characters.
+'
+
+Public Function GetBinaryFromTextW(Text)
+    GetBinaryFromTextW = GetBinaryFromText(Text, "unicode")
+End Function
+
+Public Function GetBinaryFromTextA(Text)
+    GetBinaryFromTextA = GetBinaryFromText(Text, "iso-8859-1")
+End Function
+
+Public Function GetBinaryFromTextUTF8(Text)
+    GetBinaryFromTextUTF8 = GetBinaryFromText(Text, "utf-8")
+End Function
+
+'
 ' --- Text / Binary ---
 '
 
@@ -548,166 +604,3 @@ Public Function GetBinaryFromText(Text, Charset)
         .Close
     End With
 End Function
-
-'
-' --- Test ---
-'
-
-Private Sub Test_MADODBStream_TextFileW()
-    Dim FileName
-    FileName = MADODBStream_GetSaveAsFileName()
-    If FileName = "" Then Exit Sub
-    
-    Dim Text
-    
-    Text = "WriteTextFileW" & vbNewLine
-    MADODBStream_WriteTextFileW FileName, Text
-    Text = MADODBStream_ReadTextFileW(FileName)
-    MADODBStream_Debug_Print Text
-    
-    Text = "AppendTextFileW" & vbNewLine
-    MADODBStream_AppendTextFileW FileName, Text
-    Text = MADODBStream_ReadTextFileW(FileName)
-    MADODBStream_Debug_Print Text
-End Sub
-
-Private Sub Test_MADODBStream_TextFileA()
-    Dim FileName
-    FileName = MADODBStream_GetSaveAsFileName()
-    If FileName = "" Then Exit Sub
-    
-    Dim Text
-    
-    Text = "WriteTextFileA" & vbNewLine
-    MADODBStream_WriteTextFileA FileName, Text
-    Text = MADODBStream_ReadTextFileA(FileName)
-    MADODBStream_Debug_Print Text
-    
-    Text = "AppendTextFileA" & vbNewLine
-    MADODBStream_AppendTextFileA FileName, Text
-    Text = MADODBStream_ReadTextFileA(FileName)
-    MADODBStream_Debug_Print Text
-End Sub
-
-Private Sub Test_MADODBStream_TextFileUTF8()
-    Dim FileName
-    FileName = MADODBStream_GetSaveAsFileName()
-    If FileName = "" Then Exit Sub
-    
-    Dim Text
-    
-    Text = "WriteTextFileUTF8" & vbNewLine
-    MADODBStream_WriteTextFileUTF8 FileName, Text, True
-    Text = MADODBStream_ReadTextFileUTF8(FileName)
-    MADODBStream_Debug_Print Text
-    
-    Text = "AppendTextFileUTF8" & vbNewLine
-    MADODBStream_AppendTextFileUTF8 FileName, Text, True
-    Text = MADODBStream_ReadTextFileUTF8(FileName)
-    MADODBStream_Debug_Print Text
-End Sub
-
-Private Sub Test_MADODBStream_TextFileUTF8_withoutBOM()
-    Dim FileName
-    FileName = MADODBStream_GetSaveAsFileName()
-    If FileName = "" Then Exit Sub
-    
-    Dim Text
-    
-    Text = "WriteTextFileUTF8 (w/o BOM)" & vbNewLine
-    MADODBStream_WriteTextFileUTF8 FileName, Text, False
-    Text = MADODBStream_ReadTextFileUTF8(FileName)
-    MADODBStream_Debug_Print Text
-    
-    Text = "AppendTextFileUTF8 (w/o BOM)" & vbNewLine
-    MADODBStream_AppendTextFileUTF8 FileName, Text, False
-    Text = MADODBStream_ReadTextFileUTF8(FileName)
-    MADODBStream_Debug_Print Text
-End Sub
-
-Private Sub Test_MADODBStream_BinaryFile()
-    Dim FileName
-    FileName = MADODBStream_GetSaveAsFileName()
-    If FileName = "" Then Exit Sub
-    
-    Dim StringB
-    Dim Binary
-    
-    StringB = GetTestStringB()
-    MADODBStream_WriteBinaryFileFromStringB FileName, StringB
-    Binary = MADODBStream_ReadBinaryFile(FileName, 0)
-    MADODBStream_Debug_Print_StringB Binary
-    
-    StringB = GetTestStringB()
-    MADODBStream_AppendBinaryFileFromStringB FileName, StringB
-    Binary = MADODBStream_ReadBinaryFile(FileName, 0)
-    MADODBStream_Debug_Print_StringB Binary
-End Sub
-
-Private Function GetTestStringB()
-    Dim StringB
-    Dim Index
-    For Index = 0 To 255
-        StringB = StringB & ChrB(Index)
-    Next
-    GetTestStringB = StringB
-End Function
-
-Private Sub Test_GetBinaryGetTextA()
-    Test_GetBinaryGetTextT "iso-8859-1"
-End Sub
-
-Private Sub Test_GetBinaryGetTextW()
-    Test_GetBinaryGetTextT "unicode"
-End Sub
-
-Private Sub Test_GetBinaryGetTextUTF8()
-    Test_GetBinaryGetTextT "utf-8"
-End Sub
-
-Private Sub Test_GetBinaryGetTextT(Charset)
-    Dim Text0
-    Text0 = "abcdefghijklmnopqrstuvwxyz"
-    
-    Dim Binary
-    Binary = GetBinaryFromText(Text0, Charset)
-    MADODBStream_Debug_Print_StringB Binary
-    
-    Dim Text
-    Text = GetTextFromBinary(Binary, Charset)
-    MADODBStream_Debug_Print Text
-End Sub
-
-Private Sub MADODBStream_Debug_Print_StringB(StringB)
-    Dim Text
-    Dim Index1
-    Dim Index2
-    For Index1 = 1 To LenB(StringB) Step 16
-        For Index2 = Index1 To MinL(Index1 + 15, LenB(StringB))
-            Text = _
-                Text & _
-                Right("0" & Hex(AscB(MidB(StringB, Index2, 1))), 2) & " "
-        Next
-        Text = Text & vbNewLine
-    Next
-    
-    MADODBStream_Debug_Print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
-    MADODBStream_Debug_Print Text
-    MADODBStream_Debug_Print "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --"
-End Sub
-
-Private Function MinL(Value1, Value2)
-    If Value1 < Value2 Then
-        MinL = Value1
-    Else
-        MinL = Value2
-    End If
-End Function
-
-Private Function MADODBStream_GetSaveAsFileName()
-    MADODBStream_GetSaveAsFileName = InputBox("GetSaveAsFileName")
-End Function
-
-Private Sub MADODBStream_Debug_Print(Str)
-    WScript.Echo Str
-End Sub
