@@ -112,3 +112,10 @@ Microsoft Excel X.X Object Library
 ### SpdxLicenseText.vbs - RegExp Matching Pattern Generator
 
 - [Base](vbs/SpdxLicenseText.vbs)
+
+## Others
+
+### Collection.vbs - VBA/VB.NET Collection Like Class
+
+- [Base](vbs/Collection.vbs)
+

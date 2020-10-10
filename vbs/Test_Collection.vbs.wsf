@@ -1,0 +1,171 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_CollectionA1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA1
+        </script>
+    </job>
+    <job id="Test_CollectionA2_1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA2_1
+        </script>
+    </job>
+    <job id="Test_CollectionA2_2">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA2_2
+        </script>
+    </job>
+    <job id="Test_CollectionA2_3">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA2_3
+        </script>
+    </job>
+    <job id="Test_CollectionA3_1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA3_1
+        </script>
+    </job>
+    <job id="Test_CollectionA3_2">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA3_2
+        </script>
+    </job>
+    <job id="Test_CollectionA3_3">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA3_3
+        </script>
+    </job>
+    <job id="Test_CollectionA4_1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA4_1
+        </script>
+    </job>
+    <job id="Test_CollectionA4_2">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA4_2
+        </script>
+    </job>
+    <job id="Test_CollectionA4_3">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionA4_3
+        </script>
+    </job>
+    <job id="Test_CollectionB1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB1
+        </script>
+    </job>
+    <job id="Test_CollectionB2_1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB2_1
+        </script>
+    </job>
+    <job id="Test_CollectionB2_2">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB2_2
+        </script>
+    </job>
+    <job id="Test_CollectionB2_3">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB2_3
+        </script>
+    </job>
+    <job id="Test_CollectionB3_1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB3_1
+        </script>
+    </job>
+    <job id="Test_CollectionB3_2">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB3_2
+        </script>
+    </job>
+    <job id="Test_CollectionB3_3">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB3_3
+        </script>
+    </job>
+    <job id="Test_CollectionB4_1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB4_1
+        </script>
+    </job>
+    <job id="Test_CollectionB4_2">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB4_2
+        </script>
+    </job>
+    <job id="Test_CollectionB4_3">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionB4_3
+        </script>
+    </job>
+    <job id="Test_CollectionC1">
+        <script language="vbscript" src="Collection.vbs" />
+        <script language="vbscript" src="Test_Collection.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CollectionC1
+        </script>
+    </job>
+</package>
