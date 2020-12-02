@@ -1,0 +1,508 @@
+<html>
+
+<head>
+<title>Test_SpdxLicenseTemplateText.vbs.hta</title>
+
+<meta http-equiv="msthemecompatible" content="yes">
+
+<hta:application innerborder="no" scroll="no" />
+
+<script language="vbscript">
+<!--
+'Attribute VB_Name = "SpdxLicenseTemplateText"
+Option Explicit
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+'
+' SPDX License List Matching Guidelines, v2.1
+' https://spdx.org/spdx-license-list/matching-guidelines
+'
+
+Public Function GetMatchingLines(TemplateText)
+    
+    ' TemplateTextArray
+    
+    Dim TemplateTextArray
+    TemplateTextArray = Split(Replace(TemplateText, vbCrLf, vbLf), vbLf)
+    
+    Dim LB
+    Dim UB
+    LB = LBound(TemplateTextArray)
+    UB = UBound(TemplateTextArray)
+    
+    ' ResultArray
+    
+    Dim ResultArray()
+    ReDim ResultArray(UB)
+    
+    Dim Index
+    For Index = LB To UB
+        ResultArray(Index) = GetMatchingText(Trim(TemplateTextArray(Index)))
+    Next
+    
+    ' MatchingLines
+    
+    Dim MatchingLines
+    MatchingLines = Join(ResultArray, vbNewLine) & vbNewLine
+    
+    GetMatchingLines = MatchingLines
+End Function
+
+Public Function GetMatchingText(TemplateText)
+    If TemplateText = "" Then Exit Function
+    
+    Const Pattern = "(?:<<var;name=""(.+)"";original=""(.+)"";match=""(.+)"">>|<<beginOptional>>(.+)<<endOptional>>)"
+    
+    If RegExp_Test(TemplateText, Pattern, True, False) Then
+        Dim Matches
+        Set Matches = RegExp_Execute(TemplateText, Pattern, True, False, False)
+        
+        Dim Match
+        Set Match = Matches.Item(0)
+        
+        Dim PreviousPattern
+        If Match.FirstIndex > 0 Then
+            Dim PreviousText
+            PreviousText = Left(TemplateText, Match.FirstIndex)
+            PreviousPattern = GetMatchingPattern(PreviousText)
+        End If
+        
+        Dim MiddlePattern
+        If Match.SubMatches.Item(0) <> "" Then
+            ' 2.1.3 Guideline: Replaceable Text
+            ' 7. Bullets and Numbering
+            ' 10. Copyright Notice
+            ' <<var;name="(.+)";original="(.+)";match="(.+)">>
+            
+            'Dim VarName
+            'Dim VarOriginal
+            Dim VarMatch
+            'VarName = Match.SubMatches.Item(0)
+            'VarOriginal = Match.SubMatches.Item(1)
+            VarMatch = Match.SubMatches.Item(2)
+            
+            MiddlePattern = VarMatch
+            
+        Else
+            ' 2.1.4 Guideline: Omitable Text
+            ' 11. License Name or Title
+            ' 12. Extraneous Text At the End of a License
+            ' "<<beginOptional>>(.+)<<endOptional>>"
+            
+            Dim OptText
+            OptText = Match.SubMatches.Item(3)
+            
+            Dim OptPattern
+            OptPattern = GetMatchingPattern(OptText)
+            
+            MiddlePattern = "(?:" & OptPattern & ")?"
+            
+        End If
+        
+        Dim PostPattern
+        If Match.FirstIndex + Match.Length < Len(TemplateText) Then
+            Dim PostText
+            PostText = _
+                Right( _
+                    TemplateText, _
+                    Len(TemplateText) - (Match.FirstIndex + Match.Length))
+            PostPattern = GetMatchingText(PostText)
+        End If
+        
+        GetMatchingText = PreviousPattern & MiddlePattern & PostPattern
+        
+    Else
+        GetMatchingText = GetMatchingPattern(TemplateText)
+        
+    End If
+End Function
+
+'Attribute VB_Name = "SpdxLicenseText"
+'Option Explicit
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+'
+' SPDX License List Matching Guidelines, v2.1
+' https://spdx.org/spdx-license-list/matching-guidelines
+'
+
+Public Function GetMatchingPattern(LicenseText)
+    Dim TempString
+    TempString = LCase(LicenseText)
+    
+    ' Escape Special Characters
+    TempString = RegExpReplace(TempString, "\(", "\(")
+    TempString = RegExpReplace(TempString, "\)", "\)")
+    TempString = RegExpReplace(TempString, "\[", "\[")
+    TempString = RegExpReplace(TempString, "\]", "\]")
+    
+    ' 8. Varietal Word Spelling
+    TempString = RegExpReplaceWords(TempString)
+    
+    ' 3. Whitespace
+    ' 6. Code Comment Indicators
+    TempString = RegExpReplace(TempString, "\W+", "\s+")
+    
+    ' 5.1.1 Guideline: Punctuation
+    TempString = RegExpReplace(TempString, "\.", "\.")
+    
+    ' 5.1.2 Guideline: Hyphens, Dashes
+    ' https://en.wikipedia.org/wiki/Dash
+    ' https://en.wikipedia.org/wiki/Hyphen
+    TempString = RegExpReplace(TempString, "\W+", "-")
+    
+    ' 5.1.3 Guideline: Quotes
+    ' https://en.wikipedia.org/wiki/Quotation_mark
+    TempString = RegExpReplace(TempString, "\W+", "['""]")
+    
+    ' 13. HTTP Protocol
+    TempString = RegExpReplace(TempString, "https?://", "https?://")
+    
+    GetMatchingPattern = TempString
+End Function
+
+'
+' 8. Varietal Word Spelling
+'
+' | Word1 | Word2 | MatchingPattern |
+' | --- | --- | --- |
+' | acknowledgement | acknowledgment | acknowledge?ment |
+' | analog | analogue | analog(?:ue)? |
+' | analyze | analyse | analy[zs]e |
+' | artifact | artefact | art[ie]fact |
+' | authorization | authorisation | authori[zs]ation |
+' | authorized | authorised | authori[zs]ed |
+' | caliber | calibre | calib(?:er|re) |
+' | canceled | cancelled | cancell?ed |
+' | capitalizations | capitalisations | capitali[zs]ations |
+' | catalog | catalogue | catalog(?:ue)? |
+' | categorize | categorise | categori[zs]e |
+' | center | centre | cent(?:er|re) |
+' | copyright holder | copyright owner | copyright\W+(?:hold|own)er |
+' | emphasized | emphasised | emphasi[zs]ed |
+' | favor | favour | favou?r |
+' | favorite | favourite | favou?rite |
+' | fulfill | fulfil | fulfill? |
+' | fulfillment | fulfilment | fulfill?ment |
+' | Initialize | initialise | initiali[zs]e |
+' | judgement | judgment | judge?ment |
+' | labeling | labelling | labell?ing |
+' | labor | labour | labou?r |
+' | license | licence | licen[sc]e |
+' | maximize | maximise | maximi[zs]e |
+' | modeled | modelled | modell?ed |
+' | modeling | modelling | modell?ing |
+' | noncommercial | non-commercial | non-?commercial |
+' | offense | offence | offen[sc]e |
+' | optimize | optimise | optimi[zs]e |
+' | organization | organisation | organi[zs]ation |
+' | organize | organise | organi[zs]e |
+' | percent | per cent | per\s*cent |
+' | practice | practise | practi[cs]e |
+' | program | programme | program(?:me)? |
+' | realize | realise | reali[zs]e |
+' | Recognize | recognise | recogni[zs]e |
+' | signaling | signalling | signall?ing |
+' | sublicense | sub-license | sub(?: |-)?licen[sc]e |
+' | sub-license | sub license | sub(?: |-)?licen[sc]e |
+' | sublicense | sub license | sub(?: |-)?licen[sc]e |
+' | utilization | utilisation | utili[zs]ation |
+' | while | whilst | whil(?:e|st) |
+' | wilfull | wilful | wilfull? |
+'
+
+Private Function RegExpReplaceWords(SourceString)
+    Dim ResultString
+    ResultString = SourceString
+    
+    Dim PatternAndReplaceStringArray
+    PatternAndReplaceStringArray = Array( _
+        "sub\W*licen[sc]e", _
+        "acknowledge?ment", "analog(?:ue)?", "analy[zs]e", _
+        "art[ie]fact", "authori[zs]ation", "authori[zs]ed", _
+        "calib(?:er|re)", "cancell?ed", "capitali[zs]ations", _
+        "catalog(?:ue)?", "categori[zs]e", "cent(?:er|re)", _
+        "copyright\W+(?:hold|own)er", "emphasi[zs]ed", _
+        "favou?r", "favou?rite", "fulfill?", _
+        "fulfill?ment", "initiali[zs]e", "judge?ment", _
+        "labell?ing", "labou?r", "licen[sc]e", _
+        "maximi[zs]e", "modell?ed", "modell?ing", _
+        "non\W*commercial", "offen[sc]e", "optimi[zs]e", _
+        "organi[zs]ation", "organi[zs]e", _
+        "per\s*cent", "practi[cs]e", "program(?:me)?", _
+        "reali[zs]e", "recogni[zs]e", "signall?ing", _
+        "utili[zs]ation", "whil(?:e|st)", "wilfull?")
+    
+    Dim LB
+    Dim UB
+    LB = LBound(PatternAndReplaceStringArray)
+    UB = UBound(PatternAndReplaceStringArray)
+    
+    Dim Index
+    For Index = LB To UB
+        Dim PatternAndReplaceString
+        PatternAndReplaceString = CStr(PatternAndReplaceStringArray(Index))
+        
+        ResultString = _
+            RegExpReplace( _
+                ResultString, _
+                PatternAndReplaceString, _
+                PatternAndReplaceString)
+    Next
+    
+    RegExpReplaceWords = ResultString
+End Function
+
+Private Function RegExpReplace( _
+    SourceString, _
+    ReplaceString, _
+    Pattern)
+    
+    On Error Resume Next
+    
+    With GetRegExp()
+        .Pattern = Pattern
+        .IgnoreCase = True ' 4. Capitalization
+        .Global = True
+        .MultiLine = False
+        RegExpReplace = .Replace(SourceString, ReplaceString)
+    End With
+End Function
+
+'Attribute VB_Name = "MRegExp"
+'Option Explicit
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+'
+' Microsoft VBScript Regular Expression 5.5
+' - VBScript_RegExp_55.RegExp
+'
+
+Private RegExpObject
+
+'
+' --- RegExp ---
+'
+
+'
+' GetRegExp
+' - Returns a RegExp object.
+'
+
+Public Function GetRegExp()
+    'Static RegExpObject
+    If IsEmpty(RegExpObject) Then
+        Set RegExpObject = New RegExp
+    End If
+    Set GetRegExp = RegExpObject
+End Function
+
+'
+' === RegExp ===
+'
+
+'
+' RegExp_Execute
+' - Executes a regular expression search against a specified string.
+'
+' RegExp_Replace
+' - Replaces text found in a regular expression search.
+'
+' RegExp_Test
+' - Executes a regular expression search against a specified string
+'   and returns a Boolean value that indicates if a pattern match was found.
+'
+
+'
+' SourceString:
+'   Required. The text string upon which the regular expression is executed.
+'
+' ReplaceString:
+'   Required. The replacement text string.
+'
+' Pattern:
+'   Required. Regular string expression being searched for.
+'   https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/f97kw5ka(v=vs.84)
+'
+' IgnoreCase:
+'   Optional. The value is False if the search is case-sensitive,
+'   True if it is not. Default is False.
+'
+' GlobalMatch:
+'   Optional. The value is True if the search applies to the entire string,
+'   False if it does not. Default is False.
+'
+' MultiLine:
+'   Optional. The value is False if the search is single-line mode,
+'   True if it is multi-line mode. Default is False.
+'
+
+Public Function RegExp_Execute( _
+    SourceString, _
+    Pattern, _
+    IgnoreCase, _
+    GlobalMatch, _
+    MultiLine)
+    
+    On Error Resume Next
+    
+    With GetRegExp()
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .Global = GlobalMatch
+        .MultiLine = MultiLine
+        Set RegExp_Execute = .Execute(SourceString)
+    End With
+End Function
+
+Public Function RegExp_Replace( _
+    SourceString, _
+    ReplaceString, _
+    Pattern, _
+    IgnoreCase, _
+    GlobalMatch, _
+    MultiLine)
+    
+    On Error Resume Next
+    
+    With GetRegExp()
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .Global = GlobalMatch
+        .MultiLine = MultiLine
+        RegExp_Replace = .Replace(SourceString, ReplaceString)
+    End With
+End Function
+
+Public Function RegExp_Test( _
+    SourceString, _
+    Pattern, _
+    IgnoreCase, _
+    MultiLine)
+    
+    On Error Resume Next
+    
+    With GetRegExp()
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .MultiLine = MultiLine
+        RegExp_Test = .Test(SourceString)
+    End With
+End Function
+
+'
+' --- Test ---
+'
+
+Sub btnReplace_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Result
+    Result = GetMatchingLines(SourceString)
+    
+    textareaResult.innerText = Result
+End Sub
+-->
+</script>
+
+</head>
+
+<body style="margin:0">
+
+<table width="100%">
+
+<colgroup>
+<col width="100pt"></col>
+<col></col>
+</colgroup>
+
+<tr>
+<td>SourceString:</td>
+<td><textarea id="textareaSourceString" rows="10" cols="50" style="width:100%"></textarea></td>
+</tr>
+
+<tr>
+<td></td>
+<td>
+<button id="btnReplace">Replace</button>
+</td>
+</tr>
+
+<tr>
+<td>Result:</td>
+<td><textarea id="textareaResult" rows="10" cols="50" style="width:100%"></textarea></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>

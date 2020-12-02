@@ -112,6 +112,12 @@ Microsoft Excel X.X Object Library
 ### SpdxLicenseText.vbs - RegExp Matching Pattern Generator
 
 - [Base](vbs/SpdxLicenseText.vbs)
+- [HTA](vbs.hta/Test_SpdxLicenseText.vbs.hta)
+
+### SpdxLicenseTemplateText.vbs - RegExp Matching Pattern Generator
+
+- [Base](vbs/SpdxLicenseTemplateText.vbs)
+- [HTA](vbs.hta/Test_SpdxLicenseTemplateText.vbs.hta)
 
 ## Others
 
