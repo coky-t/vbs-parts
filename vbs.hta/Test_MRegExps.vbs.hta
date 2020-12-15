@@ -1,0 +1,719 @@
+<html>
+
+<head>
+<title>Test_MRegExps.vbs.hta</title>
+
+<meta http-equiv="msthemecompatible" content="yes">
+
+<hta:application innerborder="no" scroll="no" />
+
+<script language="vbscript">
+<!--
+Option Explicit
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+'
+' Microsoft VBScript Regular Expression 5.5
+' - VBScript_RegExp_55.RegExp
+'
+
+Class CRegExp
+
+Private m_PatternName
+Private m_RegExp
+
+Private Sub Class_Initialize()
+    Set m_RegExp = CreateObject("VBScript.RegExp")
+End Sub
+
+Private Sub Class_Terminate()
+    Set m_RegExp = Nothing
+End Sub
+
+Public Property Get PatternName()
+    PatternName = m_PatternName
+End Property
+
+Public Property Let PatternName(PatternName_)
+    m_PatternName = PatternName_
+End Property
+
+'
+' Pattern:
+'   Required. Regular string expression being searched for.
+'   https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/f97kw5ka(v=vs.84)
+'
+
+Public Property Get Pattern()
+    If m_RegExp Is Nothing Then Exit Property
+    Pattern = m_RegExp.Pattern
+End Property
+
+Public Property Let Pattern(Pattern_)
+    If m_RegExp Is Nothing Then Exit Property
+    m_RegExp.Pattern = Pattern_
+End Property
+
+'
+' IgnoreCase:
+'   Optional. The value is False if the search is case-sensitive,
+'   True if it is not. Default is False.
+'
+
+Public Property Get IgnoreCase()
+    If m_RegExp Is Nothing Then Exit Property
+    IgnoreCase = m_RegExp.IgnoreCase
+End Property
+
+Public Property Let IgnoreCase(IgnoreCase_)
+    If m_RegExp Is Nothing Then Exit Property
+    m_RegExp.IgnoreCase = IgnoreCase_
+End Property
+
+'
+' GlobalMatch:
+'   Optional. The value is True if the search applies to the entire string,
+'   False if it does not. Default is False.
+'
+
+Public Property Get GlobalMatch()
+    If m_RegExp Is Nothing Then Exit Property
+    GlobalMatch = m_RegExp.Global
+End Property
+
+Public Property Let GlobalMatch(GlobalMatch_)
+    If m_RegExp Is Nothing Then Exit Property
+    m_RegExp.Global = GlobalMatch_
+End Property
+
+'
+' MultiLine:
+'   Optional. The value is False if the search is single-line mode,
+'   True if it is multi-line mode. Default is False.
+'
+
+Public Property Get MultiLine()
+    If m_RegExp Is Nothing Then Exit Property
+    MultiLine = m_RegExp.MultiLine
+End Property
+
+Public Property Let MultiLine(MultiLine_)
+    If m_RegExp Is Nothing Then Exit Property
+    m_RegExp.MultiLine = MultiLine_
+End Property
+
+'
+' Execute
+' - Executes a regular expression search against a specified string.
+'
+' Replace
+' - Replaces text found in a regular expression search.
+'
+' Test
+' - Executes a regular expression search against a specified string
+'   and returns a Boolean value that indicates if a pattern match was found.
+'
+
+'
+' SourceString:
+'   Required. The text string upon which the regular expression is executed.
+'
+' ReplaceString:
+'   Required. The replacement text string.
+'
+
+Public Function Execute(SourceString)
+    If m_RegExp Is Nothing Then Exit Function
+    Set Execute = m_RegExp.Execute(SourceString)
+End Function
+
+Public Function Replace(SourceString, ReplaceString)
+    Replace = SourceString
+    If m_RegExp Is Nothing Then Exit Function
+    Replace = m_RegExp.Replace(SourceString, ReplaceString)
+End Function
+
+Public Function Test(SourceString)
+    If m_RegExp Is Nothing Then Exit Function
+    Test = m_RegExp.Test(SourceString)
+End Function
+
+End Class
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+Class CRegExpMatches
+    Public PatternName
+    Public Matches
+End Class
+
+'
+' Copyright (c) 2020 Koki Takeyama
+'
+' Permission is hereby granted, free of charge, to any person obtaining
+' a copy of this software and associated documentation files (the "Software"),
+' to deal in the Software without restriction, including without limitation
+' the rights to use, copy, modify, merge, publish, distribute, sublicense,
+' and/or sell copies of the Software, and to permit persons to whom the
+' Software is furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included
+' in all copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+' FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+' IN THE SOFTWARE.
+'
+
+'
+' Microsoft VBScript Regular Expression 5.5
+' - VBScript_RegExp_55.RegExp
+'
+
+'
+' --- CRegExps ---
+'
+
+Public Function GetCRegExps(ParamsListString)
+    If ParamsListString = "" Then Exit Function
+    
+    Dim CRegExps
+    Set CRegExps = CreateObject("Scripting.Dictionary")
+    
+    Dim ParamsList
+    ParamsList = Split(ParamsListString, vbNewLine)
+    
+    Dim LB
+    Dim UB
+    LB = LBound(ParamsList)
+    UB = UBound(ParamsList)
+    
+    Dim Index
+    For Index = LB To UB
+        Dim Params
+        Params = ParamsList(Index)
+        
+        If Params <> "" Then
+            Dim CRegExp_
+            Set CRegExp_ = GetCRegExp(Params)
+            
+            If Not IsEmpty(CRegExp_) Then
+                CRegExps.Add CRegExps.Count + 1, CRegExp_
+            End If
+        End If
+    Next
+    
+    Set GetCRegExps = CRegExps
+End Function
+
+Public Function GetCRegExp(ParamsString)
+    If ParamsString = "" Then Exit Function
+    
+    Dim Params
+    Params = Split(ParamsString, vbTab)
+    
+    Dim LB
+    Dim UB
+    LB = LBound(Params)
+    UB = UBound(Params)
+    
+    Dim PatternName
+    Dim Pattern
+    Dim IgnoreCase
+    Dim GlobalMatch
+    Dim MultiLine
+    
+    PatternName = CStr(Params(LB))
+    If LB + 1 <= UB Then Pattern = CStr(Params(LB + 1))
+    If LB + 2 <= UB Then IgnoreCase = CBool(Params(LB + 2))
+    If LB + 3 <= UB Then GlobalMatch = CBool(Params(LB + 3))
+    If LB + 4 <= UB Then MultiLine = CBool(Params(LB + 4))
+    
+    Dim CRegExp_
+    Set CRegExp_ = New CRegExp
+    With CRegExp_
+        .PatternName = PatternName
+        .Pattern = Pattern
+        .IgnoreCase = IgnoreCase
+        .GlobalMatch = GlobalMatch
+        .MultiLine = MultiLine
+    End With
+    
+    Set GetCRegExp = CRegExp_
+End Function
+
+Public Sub CRegExps_LetOptionals( _
+    ByRef CRegExps, _
+    IgnoreCase, _
+    GlobalMatch, _
+    MultiLine)
+    
+    If CRegExps Is Nothing Then Exit Sub
+    If CRegExps.Count = 0 Then Exit Sub
+    
+    Dim Index
+    For Index = 1 To CRegExps.Count
+        Dim CRegExp_
+        Set CRegExp_ = CRegExps.Item(Index)
+        With CRegExp_
+            .IgnoreCase = IgnoreCase
+            .GlobalMatch = GlobalMatch
+            .MultiLine = MultiLine
+        End With
+    Next
+End Sub
+
+Public Function CRegExps_Execute( _
+    CRegExps, _
+    SourceString) _
+   
+    
+    If CRegExps Is Nothing Then Exit Function
+    If CRegExps.Count = 0 Then Exit Function
+    If SourceString = "" Then Exit Function
+    
+    Dim MatchesCollection
+    Set MatchesCollection = CreateObject("Scripting.Dictionary")
+    
+    Dim Index
+    For Index = 1 To CRegExps.Count
+        Dim CRegExp_
+        Set CRegExp_ = CRegExps.Item(Index)
+        
+        Dim RegExpMatches
+        Set RegExpMatches = CRegExp_Execute(CRegExp_, SourceString)
+        If Not RegExpMatches Is Nothing Then
+            MatchesCollection.Add MatchesCollection.Count + 1, RegExpMatches
+        End If
+    Next
+    
+    Set CRegExps_Execute = MatchesCollection
+End Function
+
+Public Function CRegExp_Execute(CRegExp_, SourceString)
+    If CRegExp_ Is Nothing Then Exit Function
+    If CRegExp_.PatternName = "" Then Exit Function
+    If CRegExp_.Pattern = "" Then Exit Function
+    If SourceString = "" Then Exit Function
+    
+    Dim Matches
+    Set Matches = CRegExp_.Execute(SourceString)
+    If Matches Is Nothing Then Exit Function
+    If Matches.Count = 0 Then Exit Function
+    
+    Dim RegExpMatches
+    Set RegExpMatches = New CRegExpMatches
+    With RegExpMatches
+        .PatternName = CRegExp_.PatternName
+        Set .Matches = Matches
+    End With
+    
+    Set CRegExp_Execute = RegExpMatches
+End Function
+
+Public Function CRegExps_Replace( _
+    CRegExps, _
+    SourceString)
+    
+    CRegExps_Replace = SourceString
+    
+    If CRegExps Is Nothing Then Exit Function
+    If CRegExps.Count = 0 Then Exit Function
+    If SourceString = "" Then Exit Function
+    
+    Dim ResultString
+    ResultString = SourceString
+    
+    Dim Index
+    For Index = 1 To CRegExps.Count
+        Dim CRegExp_
+        Set CRegExp_ = CRegExps.Item(Index)
+        
+        ResultString = CRegExp_Replace(CRegExp_, ResultString)
+    Next
+    
+    CRegExps_Replace = ResultString
+End Function
+
+Public Function CRegExp_Replace(CRegExp_, SourceString)
+    CRegExp_Replace = SourceString
+    
+    If CRegExp_ Is Nothing Then Exit Function
+    If CRegExp_.PatternName = "" Then Exit Function
+    If CRegExp_.Pattern = "" Then Exit Function
+    If SourceString = "" Then Exit Function
+    
+    CRegExp_Replace = CRegExp_.Replace(SourceString, CRegExp_.PatternName)
+End Function
+
+Public Function CRegExps_Test( _
+    CRegExps, _
+    SourceString)
+    
+    If CRegExps Is Nothing Then Exit Function
+    If CRegExps.Count = 0 Then Exit Function
+    If SourceString = "" Then Exit Function
+    
+    Dim ResultString
+    
+    Dim Index
+    For Index = 1 To CRegExps.Count
+        Dim CRegExp_
+        Set CRegExp_ = CRegExps.Item(Index)
+        
+        Dim Result
+        Result = CRegExp_Test(CRegExp_, SourceString)
+        
+        If Result <> "" Then
+            ResultString = ResultString & Result & vbNewLine
+        End If
+    Next
+    
+    CRegExps_Test = ResultString
+End Function
+
+Public Function CRegExp_Test(CRegExp_, SourceString)
+    If CRegExp_ Is Nothing Then Exit Function
+    If CRegExp_.PatternName = "" Then Exit Function
+    If CRegExp_.Pattern = "" Then Exit Function
+    If SourceString = "" Then Exit Function
+    
+    CRegExp_Test = _
+        CRegExp_.PatternName & vbTab & CStr(CRegExp_.Test(SourceString))
+End Function
+
+'
+' --- Test ---
+'
+
+Sub btnTest_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Patterns
+    Patterns = textareaPatterns.innerText
+    If Patterns = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim CRegExps_
+    Set CRegExps_ = GetCRegExps(Patterns)
+    
+    Dim Result
+    Result = CRegExps_Test(CRegExps_, SourceString)
+    
+    tdResult.innerText = Result
+End Sub
+
+Sub btnTestTrue_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Patterns
+    Patterns = textareaPatterns.innerText
+    If Patterns = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim CRegExps_
+    Set CRegExps_ = GetCRegExps(Patterns)
+    
+    Dim ResultsList
+    ResultsList = CRegExps_Test(CRegExps_, SourceString)
+    
+    Dim Results
+    Results = Split(ResultsList, vbNewLine)
+    
+    Dim OutputString
+    Dim Index
+    For Index = LBound(Results) To UBound(Results)
+        If Results(Index) <> "" Then
+            Dim Result
+            Result = Split(Results(Index), vbTab)
+            
+            If CBool(Result(UBound(Result))) Then
+                OutputString = OutputString & Results(Index) & vbNewLine
+            End If
+        End If
+    Next
+    
+    If OutputString = "" Then
+        OutputString = "None"
+    End If
+    
+    tdResult.innerText = OutputString
+End Sub
+
+Sub btnReplace_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Patterns
+    Patterns = textareaPatterns.innerText
+    If Patterns = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim CRegExps_
+    Set CRegExps_ = GetCRegExps(Patterns)
+    
+    Dim Result
+    Result = CRegExps_Replace(CRegExps_, SourceString)
+    
+    tdResult.innerText = Result
+End Sub
+
+Sub btnExecute_OnClick
+    Dim SourceString
+    SourceString = textareaSourceString.innerText
+    If SourceString = "" Then
+        MsgBox "SourceString: is blank."
+        Exit Sub
+    End If
+    
+    Dim Patterns
+    Patterns = textareaPatterns.innerText
+    If Patterns = "" Then
+        MsgBox "Pattern: is blank."
+        Exit Sub
+    End If
+    
+    Dim CRegExps_
+    Set CRegExps_ = GetCRegExps(Patterns)
+    
+    Dim REMCollection
+    Set REMCollection = CRegExps_Execute(CRegExps_, SourceString)
+    
+    Debug_Print_RegExpMatchesCollection REMCollection
+End Sub
+
+Private Sub Debug_Print_RegExpMatchesCollection( _
+    RegExpMatchesCollection)
+    
+    If RegExpMatchesCollection Is Nothing Then
+        tdResult.innerText = "RegExpMatchesCollection: Nothing"
+    ElseIf RegExpMatchesCollection.Count = 0 Then
+        tdResult.innerText = "RegExpMatchesCollectiontches: No item"
+    Else
+        Dim Html
+        Html = ""
+        Dim Index
+        For Index = 1 To RegExpMatchesCollection.Count
+            Dim RegExpMatches
+            Set RegExpMatches = RegExpMatchesCollection.Item(Index)
+            Html = Html & GetHtml_From_RegExpMatches(RegExpMatches)
+        Next
+        tdResult.innerHtml = Html
+    End If
+End Sub
+
+Private Function GetHtml_From_RegExpMatches(RegExpMatches)
+    If RegExpMatches Is Nothing Then
+        GetHtml_From_RegExpMatches = _
+            "<dl><dt>unknown</dt><dd>RegExpMatches: Nothing</dd></dl>"
+    Else
+        Dim Html
+        Html = "<dl>"
+        Html = Html & "<dt>" & RegExpMatches.PatternName & "</dt>"
+        Html = Html & "<dd>"
+        Html = Html & GetHtml_From_Matches(RegExpMatches.Matches)
+        Html = Html & "</dd>"
+        Html = Html & "</dl>"
+        GetHtml_From_RegExpMatches = Html
+    End If
+End Function
+
+Private Function GetHtml_From_Matches( _
+    Matches)
+    
+    If Matches Is Nothing Then
+        GetHtml_From_Matches = "Matches: Nothing"
+        Exit Function
+    ElseIf Matches.Count = 0 Then
+        GetHtml_From_Matches = "Matches: No item"
+        Exit Function
+    Else
+        'nop
+    End If
+    
+    Dim Html
+    Html = "<table>"
+    Html = Html & "<tr>"
+    Html = Html & "<th>No.</th>"
+    Html = Html & "<th>FirstIndex</th>"
+    Html = Html & "<th>Length</th>"
+    Html = Html & "<th>Value</th>"
+    
+    If Matches.Item(0).Submatches Is Nothing Then
+        'nop
+    ElseIf Matches.Item(0).Submatches.Count = 0 Then
+        'nop
+    Else
+        Dim SubMatchIndex
+        For SubMatchIndex = 0 To Matches.Item(0).Submatches.Count - 1
+            Html = Html & "<td>Sub" & CStr(SubMatchIndex + 1) & "</td>"
+        Next
+    End If
+    
+    Html = Html & "</tr>"
+    
+    Dim Match
+    Dim MatchIndex
+    For MatchIndex = 0 To Matches.Count - 1
+        Set Match = Matches.Item(MatchIndex)
+        Html = Html & GetHtml_From_Match(MatchIndex, Match)
+    Next
+    
+    Html = Html & "</table>"
+    
+    GetHtml_From_Matches = Html
+End Function
+
+Private Function GetHtml_From_Match(MatchIndex, Match)
+    Dim Html
+    Html = "<tr>"
+    Html = Html & "<td>" & CStr(MatchIndex) & "</td>"
+    Html = Html & "<td>" & CStr(Match.FirstIndex) & "</td>"
+    Html = Html & "<td>" & CStr(Match.Length) & "</td>"
+    Html = Html & "<td>" & Match.Value & "</td>"
+    Html = Html & GetHtml_From_SubMatches(Match.SubMatches)
+    Html = Html & "</tr>"
+    GetHtml_From_Match = Html
+End Function
+
+Private Function GetHtml_From_SubMatches( _
+    SubMatches)
+    
+    If SubMatches Is Nothing Then
+        Exit Function
+    ElseIf SubMatches.Count = 0 Then
+        Exit Function
+    Else
+        'nop
+    End If
+    
+    Dim Html
+    
+    Dim Index
+    Dim SubMatch
+    For Index = 0 To SubMatches.Count - 1
+        SubMatch = SubMatches.Item(Index)
+        Html = Html & "<td>" & SubMatch & "</td>"
+    Next
+    
+    GetHtml_From_SubMatches = Html
+End Function
+-->
+</script>
+
+</head>
+
+<body style="margin:0">
+
+<table width="100%">
+
+<colgroup>
+<col width="100pt"></col>
+<col></col>
+</colgroup>
+
+<tr>
+<td>SourceString:</td>
+<td><textarea id="textareaSourceString" rows="10" cols="50" style="width:100%"></textarea></td>
+</tr>
+
+<tr>
+<td>Patterns:</td>
+<td>Test, Execute: PatternName(Tab)Pattern(Tab)IgnoreCase(Tab)GlobalMatch(Tab)MultiLine(Newline)</td>
+</tr>
+
+<tr>
+<td>Patterns:</td>
+<td>Replace: ReplaceString(Tab)Pattern(Tab)IgnoreCase(Tab)GlobalMatch(Tab)MultiLine(Newline)</td>
+</tr>
+
+<tr>
+<td>Patterns:</td>
+<td><textarea id="textareaPatterns" rows="10" cols="50" style="width:100%"></textarea></td>
+</tr>
+
+<tr>
+<td></td>
+<td>
+<button id="btnTest">Test (All)</button>
+<button id="btnTestTrue">Test (True only)</button>
+<button id="btnReplace">Replace</button>
+<button id="btnExecute">Execute</button>
+</td>
+</tr>
+
+<tr>
+<td>Result:</td>
+<td id="tdResult"></td>
+</tr>
+
+</table>
+
+</body>
+
+</html>

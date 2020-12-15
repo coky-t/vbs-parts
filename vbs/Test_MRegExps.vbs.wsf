@@ -1,0 +1,61 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_CRegExps_Test">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="MRegExps.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExps_Test
+        </script>
+    </job>
+    <job id="Test_CRegExp_Test">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="MRegExps.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExp_Test
+        </script>
+    </job>
+    <job id="Test_CRegExps_Replace">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="MRegExps.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExps_Replace
+        </script>
+    </job>
+    <job id="Test_CRegExp_Replace">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="MRegExps.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExp_Replace
+        </script>
+    </job>
+    <job id="Test_CRegExps_Execute">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="CRegExpMatches.vbs" />
+        <script language="vbscript" src="MRegExps.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExps_Execute
+        </script>
+    </job>
+    <job id="Test_CRegExp_Execute">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="CRegExpMatches.vbs" />
+        <script language="vbscript" src="MRegExps.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExp_Execute
+        </script>
+    </job>
+</package>
