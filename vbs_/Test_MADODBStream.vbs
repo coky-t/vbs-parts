@@ -153,7 +153,7 @@ Public Sub Test_BinaryFile_Core( _
     Binary = MADODBStream_ReadBinaryFile(FileName, 0)
     Debug_Print_StringB Binary
     
-    MADODBStream_AppendBinaryFileFromStringB FileName, StringB1
+    MADODBStream_AppendBinaryFileFromStringB FileName, StringB2
     Binary = MADODBStream_ReadBinaryFile(FileName, 0)
     Debug_Print_StringB Binary
 End Sub
