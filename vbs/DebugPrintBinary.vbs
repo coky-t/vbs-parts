@@ -23,6 +23,10 @@ Option Explicit
 ' IN THE SOFTWARE.
 '
 
+Public Sub Debug_Print_Binary(Binary)
+    Debug_Print_StringB Binary
+End Sub
+
 Public Sub Debug_Print_StringB(StringB)
     Dim Text
     Dim Index1

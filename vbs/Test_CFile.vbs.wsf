@@ -1,0 +1,63 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_CFile_Binary">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="TestBinary.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_Binary
+        </script>
+    </job>
+    <job id="Test_CFile_File">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_File
+        </script>
+    </job>
+    <job id="Test_CFile_Path">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_Path
+        </script>
+    </job>
+    <job id="Test_CFile_TextA">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_TextA
+        </script>
+    </job>
+    <job id="Test_CFile_TextB">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="TestBinary.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintBinary.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_TextB
+        </script>
+    </job>
+    <job id="Test_CFile_TextUTF8">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_TextUTF8
+        </script>
+    </job>
+    <job id="Test_CFile_TextW">
+        <script language="vbscript" src="CFile.vbs" />
+        <script language="vbscript" src="Test_CFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFile_TextW
+        </script>
+    </job>
+</package>
