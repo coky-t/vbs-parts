@@ -1,0 +1,59 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_CFolder_Folder">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_Folder
+        </script>
+    </job>
+    <job id="Test_CFolder_Files">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_Files
+        </script>
+    </job>
+    <job id="Test_CFolder_FilesAll">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_FilesAll
+        </script>
+    </job>
+    <job id="Test_CFolder_Path">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_Path
+        </script>
+    </job>
+    <job id="Test_CFolder_SubFolders">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_SubFolders
+        </script>
+    </job>
+    <job id="Test_CFolder_SubFoldersAll">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_SubFoldersAll
+        </script>
+    </job>
+    <job id="Test_CFolder_TempFolder">
+        <script language="vbscript" src="CFolder.vbs" />
+        <script language="vbscript" src="Test_CFolder.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_CFolder_TempFolder
+        </script>
+    </job>
+</package>
