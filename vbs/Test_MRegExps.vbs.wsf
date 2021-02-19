@@ -58,4 +58,24 @@
             Call Test_CRegExp_Execute
         </script>
     </job>
+    <job id="Test_CRegExp_GetCRegExpMatches">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="CRegExpMatches.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExp_GetCRegExpMatches
+        </script>
+    </job>
+    <job id="Test_CRegExp_GetCRegExpMatch">
+        <script language="vbscript" src="CRegExp.vbs" />
+        <script language="vbscript" src="CRegExpMatch.vbs" />
+        <script language="vbscript" src="Test_MRegExps.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript" src="DebugPrintMatches.vbs" />
+        <script language="vbscript">
+            Call Test_CRegExp_GetCRegExpMatch
+        </script>
+    </job>
 </package>
