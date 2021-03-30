@@ -1,0 +1,10 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_CProgressTimer">
+        <script language="vbscript" src="CProgressTimer.vbs" />
+        <script language="vbscript" src="Test_CProgressTimer.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressTimer
+        </script>
+    </job>
+</package>
