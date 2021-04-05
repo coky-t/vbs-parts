@@ -1,0 +1,45 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_CProgressDisplay1">
+        <script language="vbscript" src="CProgressDisplay2.vbs" />
+        <script language="vbscript" src="Test_CProgressDisplay2.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressDisplay1
+        </script>
+    </job>
+    <job id="Test_CProgressDisplay2">
+        <script language="vbscript" src="CProgressDisplay2.vbs" />
+        <script language="vbscript" src="Test_CProgressDisplay2.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressDisplay2
+        </script>
+    </job>
+    <job id="Test_CProgressDisplay3">
+        <script language="vbscript" src="CProgressDisplay2.vbs" />
+        <script language="vbscript" src="Test_CProgressDisplay2.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressDisplay3
+        </script>
+    </job>
+    <job id="Test_CProgressDisplay4">
+        <script language="vbscript" src="CProgressDisplay2.vbs" />
+        <script language="vbscript" src="Test_CProgressDisplay2.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressDisplay4
+        </script>
+    </job>
+    <job id="Test_CProgressDisplay5">
+        <script language="vbscript" src="CProgressDisplay2.vbs" />
+        <script language="vbscript" src="Test_CProgressDisplay2.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressDisplay5
+        </script>
+    </job>
+    <job id="Test_CProgressDisplay6">
+        <script language="vbscript" src="CProgressDisplay2.vbs" />
+        <script language="vbscript" src="Test_CProgressDisplay2.vbs" />
+        <script language="vbscript">
+            Call Test_CProgressDisplay6
+        </script>
+    </job>
+</package>
