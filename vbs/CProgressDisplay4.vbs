@@ -2,7 +2,7 @@
 'BEGIN
 '  MultiUse = -1  'True
 'END
-'Attribute VB_Name = "CProgressDisplay3"
+'Attribute VB_Name = "CProgressDisplay4"
 'Attribute VB_GlobalNameSpace = False
 'Attribute VB_Creatable = False
 'Attribute VB_PredeclaredId = False
@@ -141,7 +141,10 @@ Public Sub Display(Indicator, Times)
         WScript.StdOut.WriteLine Ruler
         bRulerAlready = True
     End If
-    WScript.StdOut.Write Title & Indicator & Comment & Times & Chr(13)
+    Dim Control
+    Control = Chr(13)
+    If Counter >= CounterEnd Then Control = Control & Chr(10)
+    WScript.StdOut.Write Title & Indicator & Comment & Times & Control
 End Sub
 
 Private Function FormatTime(Seconds)

@@ -101,7 +101,10 @@ Public Sub Display(Indicator)
         WScript.StdOut.WriteLine Ruler
         bRulerAlready = True
     End If
-    WScript.StdOut.Write Title & Indicator & Comment & Chr(13)
+    Dim Control
+    Control = Chr(13)
+    If Counter >= CounterEnd Then Control = Control & Chr(10)
+    WScript.StdOut.Write Title & Indicator & Comment & Control
 End Sub
 
 End Class

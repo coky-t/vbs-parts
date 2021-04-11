@@ -89,7 +89,10 @@ Private Function GetPercent()
 End Function
 
 Public Sub Display(Indicator, Percent)
-    WScript.StdOut.Write Title & Indicator & Percent & Comment & Chr(13)
+    Dim Control
+    Control = Chr(13)
+    If Counter >= CounterEnd Then Control = Control & Chr(10)
+    WScript.StdOut.Write Title & Indicator & Percent & Comment & Control
 End Sub
 
 End Class

@@ -1,4 +1,4 @@
-'Attribute VB_Name = "Test_CProgressDisplay"
+'Attribute VB_Name = "Test_CProgressDisplay2"
 Option Explicit
 
 '
