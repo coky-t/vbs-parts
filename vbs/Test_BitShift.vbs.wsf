@@ -1,0 +1,219 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_LeftShiftByte01">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftShiftByte01
+        </script>
+    </job>
+    <job id="Test_LeftShiftByteFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftShiftByteFF
+        </script>
+    </job>
+    <job id="Test_LeftShiftInteger0001">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftShiftInteger0001
+        </script>
+    </job>
+    <job id="Test_LeftShiftIntegerFFFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftShiftIntegerFFFF
+        </script>
+    </job>
+    <job id="Test_LeftShiftLong00000001">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftShiftLong00000001
+        </script>
+    </job>
+    <job id="Test_LeftShiftLongFFFFFFFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftShiftLongFFFFFFFF
+        </script>
+    </job>
+    <job id="Test_RightShiftByte80">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightShiftByte80
+        </script>
+    </job>
+    <job id="Test_RightShiftByteFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightShiftByteFF
+        </script>
+    </job>
+    <job id="Test_RightShiftInteger8000">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightShiftInteger8000
+        </script>
+    </job>
+    <job id="Test_RightShiftIntegerFFFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightShiftIntegerFFFF
+        </script>
+    </job>
+    <job id="Test_RightShiftLong80000000">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightShiftLong80000000
+        </script>
+    </job>
+    <job id="Test_RightShiftLongFFFFFFFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightShiftLongFFFFFFFF
+        </script>
+    </job>
+    <job id="Test_LeftRotateByte0F">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftRotateByte0F
+        </script>
+    </job>
+    <job id="Test_LeftRotateByteF0">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftRotateByteF0
+        </script>
+    </job>
+    <job id="Test_LeftRotateInteger00FF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftRotateInteger00FF
+        </script>
+    </job>
+    <job id="Test_LeftRotateIntegerFF00">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftRotateIntegerFF00
+        </script>
+    </job>
+    <job id="Test_LeftRotateLong0000FFFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftRotateLong0000FFFF
+        </script>
+    </job>
+    <job id="Test_LeftRotateLongFFFF0000">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_LeftRotateLongFFFF0000
+        </script>
+    </job>
+    <job id="Test_RightRotateByte0F">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightRotateByte0F
+        </script>
+    </job>
+    <job id="Test_RightRotateByteF0">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightRotateByteF0
+        </script>
+    </job>
+    <job id="Test_RightRotateInteger00FF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightRotateInteger00FF
+        </script>
+    </job>
+    <job id="Test_RightRotateIntegerFF00">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightRotateIntegerFF00
+        </script>
+    </job>
+    <job id="Test_RightRotateLong0000FFFF">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightRotateLong0000FFFF
+        </script>
+    </job>
+    <job id="Test_RightRotateLongFFFF0000">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitShift.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RightRotateLongFFFF0000
+        </script>
+    </job>
+</package>

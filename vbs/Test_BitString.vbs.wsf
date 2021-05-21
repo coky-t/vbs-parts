@@ -1,0 +1,75 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_GetBinStringFromByte">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinStringFromByte
+        </script>
+    </job>
+    <job id="Test_GetBinStringFromInteger">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinStringFromInteger
+        </script>
+    </job>
+    <job id="Test_GetBinStringFromLong">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinStringFromLong
+        </script>
+    </job>
+    <job id="Test_GetOctStringFromByte">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetOctStringFromByte
+        </script>
+    </job>
+    <job id="Test_GetOctStringFromInteger">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetOctStringFromInteger
+        </script>
+    </job>
+    <job id="Test_GetOctStringFromLong">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetOctStringFromLong
+        </script>
+    </job>
+    <job id="Test_GetHexStringFromByte">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetHexStringFromByte
+        </script>
+    </job>
+    <job id="Test_GetHexStringFromInteger">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetHexStringFromInteger
+        </script>
+    </job>
+    <job id="Test_GetHexStringFromLong">
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="Test_BitString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetHexStringFromLong
+        </script>
+    </job>
+</package>
