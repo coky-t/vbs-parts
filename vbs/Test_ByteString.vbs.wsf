@@ -1,0 +1,39 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_GetStringB_LEFromInteger">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="Test_ByteString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetStringB_LEFromInteger
+        </script>
+    </job>
+    <job id="Test_GetStringB_BEFromInteger">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="Test_ByteString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetStringB_BEFromInteger
+        </script>
+    </job>
+    <job id="Test_GetStringB_LEFromLong">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="Test_ByteString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetStringB_LEFromLong
+        </script>
+    </job>
+    <job id="Test_GetStringB_BEFromLong">
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="Test_ByteString.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetStringB_BEFromLong
+        </script>
+    </job>
+</package>
