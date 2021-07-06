@@ -132,7 +132,7 @@ Public Sub Test_GetBinStringFromByte_Core(ByVal Value)
     Result = GetByteFromBinString(BinString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        BinString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        BinString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetBinStringFromInteger_Core(ByVal Value)
@@ -143,7 +143,7 @@ Public Sub Test_GetBinStringFromInteger_Core(ByVal Value)
     Result = GetIntegerFromBinString(BinString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        BinString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        BinString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetBinStringFromLong_Core(ByVal Value)
@@ -154,7 +154,7 @@ Public Sub Test_GetBinStringFromLong_Core(ByVal Value)
     Result = GetLongFromBinString(BinString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        BinString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        BinString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetOctStringFromByte_Core(ByVal Value)
@@ -165,7 +165,7 @@ Public Sub Test_GetOctStringFromByte_Core(ByVal Value)
     Result = GetByteFromOctString(OctString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        OctString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        OctString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetOctStringFromInteger_Core(ByVal Value)
@@ -176,7 +176,7 @@ Public Sub Test_GetOctStringFromInteger_Core(ByVal Value)
     Result = GetIntegerFromOctString(OctString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        OctString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        OctString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetOctStringFromLong_Core(ByVal Value)
@@ -187,7 +187,7 @@ Public Sub Test_GetOctStringFromLong_Core(ByVal Value)
     Result = GetLongFromOctString(OctString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        OctString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        OctString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetHexStringFromByte_Core(ByVal Value)
@@ -198,7 +198,7 @@ Public Sub Test_GetHexStringFromByte_Core(ByVal Value)
     Result = GetByteFromHexString(HexString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        HexString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        HexString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetHexStringFromInteger_Core(ByVal Value)
@@ -209,7 +209,7 @@ Public Sub Test_GetHexStringFromInteger_Core(ByVal Value)
     Result = GetIntegerFromHexString(HexString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        HexString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        HexString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
 
 Public Sub Test_GetHexStringFromLong_Core(ByVal Value)
@@ -220,5 +220,5 @@ Public Sub Test_GetHexStringFromLong_Core(ByVal Value)
     Result = GetLongFromHexString(HexString)
     
     Debug_Print CStr(Value) & "(" & Hex(Value) & ")" & " = " & _
-        HexString & " = " & CStr(Value) & "(" & Hex(Value) & ")"
+        HexString & " = " & CStr(Result) & "(" & Hex(Result) & ")"
 End Sub
