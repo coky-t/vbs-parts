@@ -1,0 +1,135 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_GetBinStringFromSingle">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinStringFromSingle
+        </script>
+    </job>
+    <job id="Test_GetBinStringFromDouble">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetBinStringFromDouble
+        </script>
+    </job>
+    <job id="Test_GetSingleFromBinString">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetSingleFromBinString
+        </script>
+    </job>
+    <job id="Test_GetDoubleFromBinString">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetDoubleFromBinString
+        </script>
+    </job>
+    <job id="Test_GetOctStringFromSingle">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetOctStringFromSingle
+        </script>
+    </job>
+    <job id="Test_GetOctStringFromDouble">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetOctStringFromDouble
+        </script>
+    </job>
+    <job id="Test_GetSingleFromOctString">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetSingleFromOctString
+        </script>
+    </job>
+    <job id="Test_GetDoubleFromOctString">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetDoubleFromOctString
+        </script>
+    </job>
+    <job id="Test_GetHexStringFromSingle">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetHexStringFromSingle
+        </script>
+    </job>
+    <job id="Test_GetHexStringFromDouble">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetHexStringFromDouble
+        </script>
+    </job>
+    <job id="Test_GetSingleFromHexString">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetSingleFromHexString
+        </script>
+    </job>
+    <job id="Test_GetDoubleFromHexString">
+        <script language="vbscript" src="BitStringF.vbs" />
+        <script language="vbscript" src="BitString.vbs" />
+        <script language="vbscript" src="ByteString.vbs" />
+        <script language="vbscript" src="BitShift.vbs" />
+        <script language="vbscript" src="Test_BitStringF.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_GetDoubleFromHexString
+        </script>
+    </job>
+</package>
