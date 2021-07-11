@@ -61,7 +61,10 @@ Public Sub Test_GetBinStringFromDouble()
     
     Test_GetBinStringFromDouble_Core 1.0
     Test_GetBinStringFromDouble_Core -1.0
+    Test_GetBinStringFromDouble_Core 12.375
     Test_GetBinStringFromDouble_Core 0.5
+    Test_GetBinStringFromDouble_Core 0.375
+    Test_GetBinStringFromDouble_Core 0.25
     Test_GetBinStringFromDouble_Core 0.1
     Test_GetBinStringFromDouble_Core 1.0 / 3.0
 End Sub
