@@ -57,12 +57,60 @@ End Sub
 '
 
 Public Sub Test_ParseJsonText_Core(JsonText)
+    Test_ParseJsonText_JsonObject JsonText
+    Test_ParseJsonText_VbsObject1 JsonText
+    Test_ParseJsonText_VbsObject2 JsonText
+End Sub
+
+Public Sub Test_ParseJsonText_JsonObject(JsonText)
     Debug_Print "==="
     Debug_Print JsonText
     Debug_Print "==="
     
     Dim JsonObject
     Set JsonObject = ParseJsonText(JsonText)
+    
+    If IsJsonArray(JsonObject) Then
+        Debug_Print "=== Array ==="
+    Else
+        Debug_Print "=== Object ==="
+    End If
+    Debug_Print_JsonObject JsonObject
+    
+    Debug_Print "==="
+    Debug_Print GetJsonText(JsonObject)
+    Debug_Print "==="
+End Sub
+
+Public Sub Test_ParseJsonText_VbsObject1(JsonText)
+    Debug_Print "==="
+    Debug_Print JsonText
+    Debug_Print "==="
+    
+    Dim VbsObject
+    Set VbsObject = GetVbsObjectFromJsonText(JsonText)
+    
+    Debug_Print "=== " & TypeName(VbsObject) & " ==="
+    Debug_Print_VbsObject VbsObject
+    
+    Debug_Print "==="
+    Debug_Print GetJsonTextFromVbsObject(VbsObject)
+    Debug_Print "==="
+End Sub
+
+Public Sub Test_ParseJsonText_VbsObject2(JsonText)
+    Debug_Print "==="
+    Debug_Print JsonText
+    Debug_Print "==="
+    
+    Dim VbsObject
+    Set VbsObject = GetVbsObjectFromJsonText(JsonText)
+    
+    Debug_Print "=== " & TypeName(VbsObject) & " ==="
+    Debug_Print_VbsObject VbsObject
+    
+    Dim JsonObject
+    Set JsonObject = GetJsonObjectFromVbsObject(VbsObject)
     
     If IsJsonArray(JsonObject) Then
         Debug_Print "=== Array ==="
@@ -101,6 +149,56 @@ Public Sub Debug_Print_JsonObject(JsonObject)
         Else
             Value = CStr(GetJsonItemValue(JsonObject, Key))
             Debug_Print Key & ": " & Value
+        End If
+    Next
+End Sub
+
+Private Sub Debug_Print_VbsObject(VbsObject)
+    Select Case TypeName(VbsObject)
+    
+    Case "Collection"
+        Debug_Print_VbsCollection VbsObject
+        
+    Case "Dictionary"
+        Debug_Print_VbsDictionary VbsObject
+        
+    Case Else
+        Err.Raise 13 ' unmatched type
+        
+    End Select
+End Sub
+
+Private Sub Debug_Print_VbsCollection(VbsCollection)
+    Dim Index
+    For Index = 1 To VbsCollection.Count
+        If IsObject(VbsCollection.Item(Index)) Then
+            Debug_Print _
+                CStr(Index) & " --- " & _
+                TypeName(VbsCollection.Item(Index)) & " ---"
+            Debug_Print_VbsObject VbsCollection.Item(Index)
+            Debug_Print CStr(Index) & " ---"
+        Else
+            Debug_Print CStr(Index) & ": " & CStr(VbsCollection.Item(Index))
+        End If
+    Next
+End Sub
+
+Private Sub Debug_Print_VbsDictionary(VbsDictionary)
+    Dim VbsDicKeys
+    VbsDicKeys = VbsDictionary.Keys
+    
+    Dim Index
+    For Index = LBound(VbsDicKeys) To UBound(VbsDicKeys)
+        Dim Key
+        Key = VbsDicKeys(Index)
+        If IsObject(VbsDictionary.Item(Key)) Then
+            Debug_Print _
+                Key & " --- " & _
+                TypeName(VbsDictionary.Item(Key)) & " ---"
+            Debug_Print_VbsObject VbsDictionary.Item(Key)
+            Debug_Print Key & " ---"
+        Else
+            Debug_Print Key & ": " & CStr(VbsDictionary.Item(Key))
         End If
     Next
 End Sub

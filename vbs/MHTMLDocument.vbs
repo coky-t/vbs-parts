@@ -48,9 +48,17 @@ Public Function GetHTMLDocumentForJson()
         Set HTMLDocument = CreateObject("htmlfile")
         With HTMLDocument
             .write "<meta http-equiv=""x-ua-compatible"" content=""IE=11""/>"
+            
+            '
+            ' JsonText to JsonObject
+            '
             .write _
                 "<script>document.ParseJsonText=function (JsonText) { " & _
                 "return eval('(' + JsonText + ')'); }</script>"
+                
+            '
+            ' JsonObject to JsonItems
+            '
             .write _
                 "<script>document.GetKeys=function (JsonObj) { " & _
                 "var keys = []; " & _
@@ -70,9 +78,34 @@ Public Function GetHTMLDocumentForJson()
                 "<script>document.IsJsonArray=function (obj) { " & _
                 "return Object.prototype.toString.call(obj) === " & _
                 "'[object Array]'; }</script>"
+                
+            '
+            ' JsonObject to JsonText
+            '
             .write _
                 "<script>document.GetJsonText=function (obj) { " & _
                 "return document.parentWindow.JSON.stringify(obj); }</script>"
+                
+            '
+            ' VbsObject to JsonObject
+            '
+            .write _
+                "<script>document.NewJsonArray=function () { " & _
+                "return new Array; }</script>"
+            .write _
+                "<script>document.AddJsonArrayItem=" & _
+                "function (arr, item) { " & _
+                "arr.push(item);" & _
+                "return arr; }</script>"
+            .write _
+                "<script>document.NewJsonDictionary=function () { " & _
+                "var dic = {}; " & _
+                "return dic; }</script>"
+            .write _
+                "<script>document.AddJsonDictionaryItem=" & _
+                "function (dic, key, item) { " & _
+                "dic[key] = item;" & _
+                "return dic; }</script>"
         End With
     End If
     Set GetHTMLDocumentForJson = HTMLDocument
@@ -248,7 +281,8 @@ End Function
 
 '
 ' IsJsonArray
-' - Returns whether JSON object is Array.
+' - Returns a Boolean value indicating whether JSON object is an instance of
+'   Array object.
 '
 
 '
@@ -290,4 +324,218 @@ Public Function GetJsonText(JsonObject)
 '#Else
     GetJsonText = GetHTMLDocumentForJson().GetJsonText(JsonObject)
 '#End If
+End Function
+
+'
+' VbsObject to JsonObject
+'
+
+Public Function NewJsonArray()
+'#If UseCallByName Then
+'    Set NewJsonArray = _
+'        CallByName( _
+'            GetHTMLDocumentForJson(), _
+'            "NewJsonArray", _
+'            VbMethod)
+'#Else
+    Set NewJsonArray = GetHTMLDocumentForJson().NewJsonArray()
+'#End If
+End Function
+
+Public Function AddJsonArrayItem(JsonArray, Item)
+'#If UseCallByName Then
+'    Set AddJsonArrayItem = _
+'        CallByName( _
+'            GetHTMLDocumentForJson(), _
+'            "AddJsonArrayItem", _
+'            VbMethod, _
+'            JsonArray, _
+'            Item)
+'#Else
+    Set AddJsonArrayItem = _
+        GetHTMLDocumentForJson().AddJsonArrayItem(JsonArray, Item)
+'#End If
+End Function
+
+Public Function NewJsonDictionary()
+'#If UseCallByName Then
+'    Set NewJsonDictionary = _
+'        CallByName( _
+'            GetHTMLDocumentForJson(), _
+'            "NewJsonDictionary", _
+'            VbMethod)
+'#Else
+    Set NewJsonDictionary = GetHTMLDocumentForJson().NewJsonDictionary()
+'#End If
+End Function
+
+Public Function AddJsonDictionaryItem(JsonDictionary, Key, Item)
+'#If UseCallByName Then
+'    Set AddJsonDictionaryItem = _
+'        CallByName( _
+'            GetHTMLDocumentForJson(), _
+'            "AddJsonDictionaryItem", _
+'            VbMethod, _
+'            JsonDictionary, _
+'            Key, _
+'            Item)
+'#Else
+    Set AddJsonDictionaryItem = _
+        GetHTMLDocumentForJson().AddJsonDictionaryItem( _
+            JsonDictionary, Key, Item)
+'#End If
+End Function
+
+'
+' JsonObject to VbsObject
+'
+
+Public Function GetVbsObjectFromJsonObject(JsonObject)
+    If IsJsonArray(JsonObject) Then
+        Set GetVbsObjectFromJsonObject = _
+            GetVbsCollectionFromJsonArray(JsonObject)
+    Else
+        Set GetVbsObjectFromJsonObject = _
+            GetVbsDictionaryFromJsonDictionary(JsonObject)
+    End If
+End Function
+
+Public Function GetVbsCollectionFromJsonArray(JsonArray)
+    Dim VbsCollection
+    Set VbsCollection = New Collection
+    
+    Dim Keys
+    Set Keys = GetJsonKeys(JsonArray)
+    
+    Dim KeysLength
+    KeysLength = GetJsonKeysLength(Keys)
+    
+    Dim Index
+    Dim Key
+    For Index = 0 To KeysLength - 1
+        Key = GetJsonKeysItem(Keys, Index)
+        If IsJsonItemObject(JsonArray, Key) Then
+            Dim JsonItemObject
+            Set JsonItemObject = GetJsonItemObject(JsonArray, Key)
+            
+            Dim VbsItemObject
+            Set VbsItemObject = GetVbsObjectFromJsonObject(JsonItemObject)
+            
+            VbsCollection.PushBack VbsItemObject
+        Else
+            VbsCollection.PushBack GetJsonItemValue(JsonArray, Key)
+        End If
+    Next
+    
+    Set GetVbsCollectionFromJsonArray = VbsCollection
+End Function
+
+Public Function GetVbsDictionaryFromJsonDictionary(JsonDictionary)
+    Dim VbsDictionary
+    Set VbsDictionary = CreateObject("Scripting.Dictionary")
+    
+    Dim Keys
+    Set Keys = GetJsonKeys(JsonDictionary)
+    
+    Dim KeysLength
+    KeysLength = GetJsonKeysLength(Keys)
+    
+    Dim Index
+    Dim Key
+    For Index = 0 To KeysLength - 1
+        Key = GetJsonKeysItem(Keys, Index)
+        If IsJsonItemObject(JsonDictionary, Key) Then
+            Dim JsonItemObject
+            Set JsonItemObject = GetJsonItemObject(JsonDictionary, Key)
+            
+            Dim VbsItemObject
+            Set VbsItemObject = GetVbsObjectFromJsonObject(JsonItemObject)
+            
+            VbsDictionary.Add Key, VbsItemObject
+        Else
+            VbsDictionary.Add Key, GetJsonItemValue(JsonDictionary, Key)
+        End If
+    Next
+    
+    Set GetVbsDictionaryFromJsonDictionary = VbsDictionary
+End Function
+
+'
+' VbsObject to JsonObject
+'
+
+Public Function GetJsonObjectFromVbsObject(VbsObject)
+    Select Case TypeName(VbsObject)
+    
+    Case "Collection"
+        Set GetJsonObjectFromVbsObject = _
+            GetJsonArrayFromVbsCollection(VbsObject)
+        
+    Case "Dictionary"
+        Set GetJsonObjectFromVbsObject = _
+            GetJsonDictionaryFromVbsDictionary(VbsObject)
+        
+    Case Else
+        Err.Raise 13 ' unmatched type
+        
+    End Select
+End Function
+
+Public Function GetJsonArrayFromVbsCollection(VbsCollection)
+    Dim JsonArray
+    Set JsonArray = NewJsonArray()
+    
+    Dim Index
+    For Index = 1 To VbsCollection.Count
+        If IsObject(VbsCollection.Item(Index)) Then
+            AddJsonArrayItem JsonArray, _
+                GetJsonObjectFromVbsObject(VbsCollection.Item(Index))
+        Else
+            AddJsonArrayItem JsonArray, VbsCollection.Item(Index)
+        End If
+    Next
+    
+    Set GetJsonArrayFromVbsCollection = JsonArray
+End Function
+
+Public Function GetJsonDictionaryFromVbsDictionary(VbsDictionary)
+    Dim JsonDictionary
+    Set JsonDictionary = NewJsonDictionary()
+    
+    Dim VbsDicKeys
+    VbsDicKeys = VbsDictionary.Keys
+    
+    Dim Index
+    For Index = LBound(VbsDicKeys) To UBound(VbsDicKeys)
+        Dim Key
+        Key = VbsDicKeys(Index)
+        If IsObject(VbsDictionary.Item(Key)) Then
+            AddJsonDictionaryItem JsonDictionary, Key, _
+                GetJsonObjectFromVbsObject(VbsDictionary.Item(Key))
+        Else
+            AddJsonDictionaryItem JsonDictionary, Key, VbsDictionary.Item(Key)
+        End If
+    Next
+    
+    Set GetJsonDictionaryFromVbsDictionary = JsonDictionary
+End Function
+
+'
+' JsonText to VbsObject
+'
+
+Public Function GetVbsObjectFromJsonText(JsonText)
+    Dim JsonObject
+    Set JsonObject = ParseJsonText(JsonText)
+    Set GetVbsObjectFromJsonText = GetVbsObjectFromJsonObject(JsonObject)
+End Function
+
+'
+' VbsObject to JsonText
+'
+
+Public Function GetJsonTextFromVbsObject(VbsObject)
+    Dim JsonObject
+    Set JsonObject = GetJsonObjectFromVbsObject(VbsObject)
+    GetJsonTextFromVbsObject = GetJsonText(JsonObject)
 End Function
