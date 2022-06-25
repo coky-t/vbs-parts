@@ -25,4 +25,12 @@
             Call Test_RegExp_Execute
         </script>
     </job>
+    <job id="Test_RegExp_MatchedValue">
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="Test_MRegExp.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_RegExp_MatchedValue
+        </script>
+    </job>
 </package>
