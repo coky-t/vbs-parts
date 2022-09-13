@@ -1,0 +1,48 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_StrArrayDiff_1">
+        <script language="vbscript" src="StrArrayDiff2.vbs" />
+        <script language="vbscript" src="IIf.vbs" />
+        <script language="vbscript" src="Test_StrArrayDiff.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_StrArrayDiff_1
+        </script>
+    </job>
+    <job id="Test_StrArrayDiff_2">
+        <script language="vbscript" src="StrArrayDiff2.vbs" />
+        <script language="vbscript" src="IIf.vbs" />
+        <script language="vbscript" src="Test_StrArrayDiff.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_StrArrayDiff_2
+        </script>
+    </job>
+    <job id="Test_StrArrayDiff_3">
+        <script language="vbscript" src="StrArrayDiff2.vbs" />
+        <script language="vbscript" src="IIf.vbs" />
+        <script language="vbscript" src="Test_StrArrayDiff.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_StrArrayDiff_3
+        </script>
+    </job>
+    <job id="Test_StrArrayDiff_4">
+        <script language="vbscript" src="StrArrayDiff2.vbs" />
+        <script language="vbscript" src="IIf.vbs" />
+        <script language="vbscript" src="Test_StrArrayDiff.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_StrArrayDiff_4
+        </script>
+    </job>
+    <job id="Test_StrArrayDiff_5">
+        <script language="vbscript" src="StrArrayDiff2.vbs" />
+        <script language="vbscript" src="IIf.vbs" />
+        <script language="vbscript" src="Test_StrArrayDiff.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_StrArrayDiff_5
+        </script>
+    </job>
+</package>
