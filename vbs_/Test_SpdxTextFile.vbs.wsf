@@ -69,4 +69,16 @@
             Call Test_SaveSpdxTemplateToFontFiles
         </script>
     </job>
+    <job id="Test_SaveSpdxTemplateToPatternFiles">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="MRegExp.vbs" />
+        <script language="vbscript" src="SpdxLicenseTemplateText.vbs" />
+        <script language="vbscript" src="SpdxLicenseText.vbs" />
+        <script language="vbscript" src="Test_SpdxTextFile.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveSpdxTemplateToPatternFiles
+        </script>
+    </job>
 </package>

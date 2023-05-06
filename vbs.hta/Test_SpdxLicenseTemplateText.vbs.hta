@@ -9,11 +9,10 @@
 
 <script language="vbscript">
 <!--
-'Attribute VB_Name = "SpdxLicenseTemplateText"
 Option Explicit
 
 '
-' Copyright (c) 2020 Koki Takeyama
+' Copyright (c) 2020,2023 Koki Takeyama
 '
 ' Permission is hereby granted, free of charge, to any person obtaining
 ' a copy of this software and associated documentation files (the "Software"),
@@ -35,114 +34,191 @@ Option Explicit
 '
 
 '
-' SPDX License List Matching Guidelines, v2.1
-' https://spdx.org/spdx-license-list/matching-guidelines
+' SPDX License List Matching Guidelines, v2.3
+' https://spdx.github.io/spdx-spec/v2.3/license-matching-guidelines-and-templates/
 '
-
-Public Function GetMatchingLines(TemplateText)
-    
-    ' TemplateTextArray
-    
-    Dim TemplateTextArray
-    TemplateTextArray = Split(Replace(TemplateText, vbCrLf, vbLf), vbLf)
-    
-    Dim LB
-    Dim UB
-    LB = LBound(TemplateTextArray)
-    UB = UBound(TemplateTextArray)
-    
-    ' ResultArray
-    
-    Dim ResultArray()
-    ReDim ResultArray(UB)
-    
-    Dim Index
-    For Index = LB To UB
-        ResultArray(Index) = GetMatchingText(Trim(TemplateTextArray(Index)))
-    Next
-    
-    ' MatchingLines
-    
-    Dim MatchingLines
-    MatchingLines = Join(ResultArray, vbNewLine) & vbNewLine
-    
-    GetMatchingLines = MatchingLines
-End Function
 
 Public Function GetMatchingText(TemplateText)
     If TemplateText = "" Then Exit Function
     
-    Const Pattern = "(?:<<var;name=""(.+)"";original=""(.+)"";match=""(.+)"">>|<<beginOptional>>(.+)<<endOptional>>)"
+    ' B.15.3 Legacy Text Template format
+    'Const Pattern = "(?:<<var;name=""([^""]+)"";original=""(.+)"";match=""(.+)"">>|<<beginOptional>>(.+)<<endOptional>>)"
+    Const Pattern = "(?:<<var;name=""([^""]+)"";original=""|<<beginOptional>>)"
     
-    If RegExp_Test(TemplateText, Pattern, True, False) Then
-        Dim Matches
-        Set Matches = RegExp_Execute(TemplateText, Pattern, True, False, False)
+    If Not RegExp_Test(TemplateText, Pattern, True, False) Then
+        GetMatchingText = GetSimpleMatchingPattern(TemplateText)
+        Exit Function
+    End If
+    
+    Dim Matches
+    Set Matches = RegExp_Execute(TemplateText, Pattern, True, False, False)
+    
+    Dim Match
+    Set Match = Matches.Item(0)
+    
+    Dim PreviousPattern
+    If Match.FirstIndex > 0 Then
+        Dim PreviousText
+        PreviousText = Left(TemplateText, Match.FirstIndex)
+        PreviousPattern = GetSimpleMatchingPattern(PreviousText)
+    End If
+    
+    Dim MiddlePattern
+    Dim MiddleTextTemp
+    Dim PostPattern
+    Dim PostTextTemp
+    
+    If Match.SubMatches.Item(0) <> "" Then
+        ' B.3.4 Guideline: replaceable text
+        ' B.8 Bullets and numbering
+        ' B.11 Copyright notice
+        ' <<var;name="([^"]+)";original="(.+)";match="(.+)">>
         
-        Dim Match
-        Set Match = Matches.Item(0)
+        'Dim VarName
+        'Dim VarOriginal
+        'Dim VarMatch
+        'VarName = Match.SubMatches.Item(0)
+        'VarOriginal = Match.SubMatches.Item(1)
+        'VarMatch = Match.SubMatches.Item(2)
         
-        Dim PreviousPattern
-        If Match.FirstIndex > 0 Then
-            Dim PreviousText
-            PreviousText = Left(TemplateText, Match.FirstIndex)
-            PreviousPattern = GetMatchingPattern(PreviousText)
-        End If
+        'MiddlePattern = VarMatch
         
-        Dim MiddlePattern
-        If Match.SubMatches.Item(0) <> "" Then
-            ' 2.1.3 Guideline: Replaceable Text
-            ' 7. Bullets and Numbering
-            ' 10. Copyright Notice
-            ' <<var;name="(.+)";original="(.+)";match="(.+)">>
-            
-            'Dim VarName
-            'Dim VarOriginal
-            Dim VarMatch
-            'VarName = Match.SubMatches.Item(0)
-            'VarOriginal = Match.SubMatches.Item(1)
-            VarMatch = Match.SubMatches.Item(2)
-            
-            MiddlePattern = VarMatch
-            
-        Else
-            ' 2.1.4 Guideline: Omitable Text
-            ' 11. License Name or Title
-            ' 12. Extraneous Text At the End of a License
-            ' "<<beginOptional>>(.+)<<endOptional>>"
-            
-            Dim OptText
-            OptText = Match.SubMatches.Item(3)
-            
-            Dim OptPattern
-            OptPattern = GetMatchingPattern(OptText)
-            
-            MiddlePattern = "(?:" & OptPattern & ")?"
-            
-        End If
+        'If Match.FirstIndex + Match.Length < Len(TemplateText) Then
+        '    PostTextTemp = _
+        '        Right( _
+        '            TemplateText, _
+        '            Len(TemplateText) - (Match.FirstIndex + Match.Length))
+        '    PostPattern = GetMatchingText(PostTextTemp)
+        'End If
         
-        Dim PostPattern
-        If Match.FirstIndex + Match.Length < Len(TemplateText) Then
-            Dim PostText
-            PostText = _
-                Right( _
+        Dim VarMatchPos
+        Dim VarEndPos
+        
+        VarMatchPos = _
+            InStr( _
+                Match.FirstIndex + Match.Length + 1, _
+                TemplateText, _
+                """;match=""")
+        
+        If VarMatchPos > 0 Then
+            VarEndPos = _
+                InStr( _
+                    VarMatchPos + Len(""";match="""), _
                     TemplateText, _
-                    Len(TemplateText) - (Match.FirstIndex + Match.Length))
-            PostPattern = GetMatchingText(PostText)
+                    """>>")
         End If
         
-        GetMatchingText = PreviousPattern & MiddlePattern & PostPattern
+        If VarEndPos > 0 Then
+            MiddleTextTemp = _
+                Mid( _
+                    TemplateText, _
+                    VarMatchPos + Len(""";match="""), _
+                    VarEndPos - (VarMatchPos + Len(""";match=""")))
+            MiddlePattern = MiddleTextTemp
+            
+            If VarEndPos - 1 + Len(""">>") < Len(TemplateText) Then
+                PostTextTemp = _
+                    Right( _
+                        TemplateText, _
+                        Len(TemplateText) - (VarEndPos - 1 + Len(""">>")))
+                PostPattern = GetMatchingText(PostTextTemp)
+            End If
+            
+        End If
         
     Else
-        GetMatchingText = GetMatchingPattern(TemplateText)
+        ' B.3.5 Guideline: omittable text
+        ' B.12 License name or title
+        ' B.13 Extraneous text at the end of a license
+        ' "<<beginOptional>>(.+)<<endOptional>>"
+        
+        'Dim OptText
+        'OptText = Match.SubMatches.Item(3)
+        
+        'Dim OptPattern
+        'OptPattern = GetSimpleMatchingPattern(OptText)
+        
+        'MiddlePattern = "(?:" & OptPattern & ")?"
+        
+        'If Match.FirstIndex + Match.Length < Len(TemplateText) Then
+        '    PostTextTemp = _
+        '        Right( _
+        '            TemplateText, _
+        '            Len(TemplateText) - (Match.FirstIndex + Match.Length))
+        '    PostPattern = GetMatchingText(PostTextTemp)
+        'End If
+        
+        Dim EndOptionalPos
+        'EndOptionalPos = _
+        '    InStr( _
+        '        Match.FirstIndex + Match.Length + 1, _
+        '        TemplateText, _
+        '        "<<endOptional>>")
+        EndOptionalPos = _
+            GetEndOptionalPos( _
+                Match.FirstIndex + Match.Length + 1, _
+                TemplateText)
+        If EndOptionalPos > 0 Then
+            MiddleTextTemp = _
+                Mid( _
+                    TemplateText, _
+                    Match.FirstIndex + Match.Length + 1, _
+                    EndOptionalPos - 1 - (Match.FirstIndex + Match.Length))
+            MiddlePattern = "(?:" & GetMatchingText(MiddleTextTemp) & ")?"
+            
+            If EndOptionalPos - 1 + Len("<<endOptional>>") < _
+                Len(TemplateText) Then
+                PostTextTemp = _
+                    Right( _
+                        TemplateText, _
+                        Len(TemplateText) - _
+                            (EndOptionalPos - 1 + Len("<<endOptional>>")))
+                PostPattern = GetMatchingText(PostTextTemp)
+            End If
+            
+        End If
         
     End If
+    
+    GetMatchingText = PreviousPattern & MiddlePattern & PostPattern
+End Function
+
+Private Function GetEndOptionalPos(StartPos, TemplateText)
+    Dim BeginOptionalPos
+    BeginOptionalPos = InStr(StartPos, TemplateText, "<<beginOptional>>")
+    
+    Dim EndOptionalPos
+    EndOptionalPos = InStr(StartPos, TemplateText, "<<endOptional>>")
+    
+    If BeginOptionalPos = 0 Then
+        GetEndOptionalPos = EndOptionalPos
+        Exit Function
+    End If
+    
+    If BeginOptionalPos > EndOptionalPos Then
+        GetEndOptionalPos = EndOptionalPos
+        Exit Function
+    End If
+    
+    Dim EndOptionalPosTemp
+    EndOptionalPosTemp = _
+        GetEndOptionalPos( _
+            BeginOptionalPos + Len("<<beginOptional>>"), _
+            TemplateText)
+    
+    EndOptionalPos = _
+        GetEndOptionalPos( _
+            EndOptionalPosTemp + Len("<<endOptional>>"), _
+            TemplateText)
+    
+    GetEndOptionalPos = EndOptionalPos
 End Function
 
 'Attribute VB_Name = "SpdxLicenseText"
 'Option Explicit
 
 '
-' Copyright (c) 2020 Koki Takeyama
+' Copyright (c) 2020,2022 Koki Takeyama
 '
 ' Permission is hereby granted, free of charge, to any person obtaining
 ' a copy of this software and associated documentation files (the "Software"),
@@ -168,39 +244,25 @@ End Function
 ' https://spdx.org/spdx-license-list/matching-guidelines
 '
 
-Public Function GetMatchingPattern(LicenseText)
+Public Function GetSimpleMatchingPattern(LicenseText)
     Dim TempString
     TempString = LCase(LicenseText)
     
-    ' Escape Special Characters
-    TempString = RegExpReplace(TempString, "\(", "\(")
-    TempString = RegExpReplace(TempString, "\)", "\)")
-    TempString = RegExpReplace(TempString, "\[", "\[")
-    TempString = RegExpReplace(TempString, "\]", "\]")
+    ' 3. Whitespace
+    ' 5. Punctuation
+    ' 5.1.1 Guideline: Punctuation
+    ' 5.1.2 Guideline: Hyphens, Dashes
+    ' 5.1.3 Guideline: Quotes
+    ' 6. Code Comment Indicators
+    TempString = RegExpReplace(TempString, "\W*", "\W+")
     
     ' 8. Varietal Word Spelling
     TempString = RegExpReplaceWords(TempString)
     
-    ' 3. Whitespace
-    ' 6. Code Comment Indicators
-    TempString = RegExpReplace(TempString, "\W+", "\s+")
-    
-    ' 5.1.1 Guideline: Punctuation
-    TempString = RegExpReplace(TempString, "\.", "\.")
-    
-    ' 5.1.2 Guideline: Hyphens, Dashes
-    ' https://en.wikipedia.org/wiki/Dash
-    ' https://en.wikipedia.org/wiki/Hyphen
-    TempString = RegExpReplace(TempString, "\W+", "-")
-    
-    ' 5.1.3 Guideline: Quotes
-    ' https://en.wikipedia.org/wiki/Quotation_mark
-    TempString = RegExpReplace(TempString, "\W+", "['""]")
-    
     ' 13. HTTP Protocol
-    TempString = RegExpReplace(TempString, "https?://", "https?://")
+    TempString = RegExpReplace(TempString, "https?", "https?")
     
-    GetMatchingPattern = TempString
+    GetSimpleMatchingPattern = TempString
 End Function
 
 '
@@ -466,7 +528,7 @@ Sub btnReplace_OnClick
     End If
     
     Dim Result
-    Result = GetMatchingLines(SourceString)
+    Result = GetMatchingText(SourceString)
     
     textareaResult.innerText = Result
 End Sub
