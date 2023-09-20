@@ -13,7 +13,7 @@
 Option Explicit
 
 '
-' Copyright (c) 2022 Koki Takeyama
+' Copyright (c) 2022,2023 Koki Takeyama
 '
 ' Permission is hereby granted, free of charge, to any person obtaining
 ' a copy of this software and associated documentation files (the "Software"),
@@ -390,13 +390,13 @@ Function GetStr1SES(Str1Words, SES)
     For Index = 1 To Len(SES)
         Select Case Mid(SES, Index, 1)
         Case " "
-            Str1SES = Str1SES & Str1Words.Item(Index1 - 1)
+            Str1SES = Str1SES & ReplaceChars(Str1Words.Item(Index1 - 1))
             Index1 = Index1 + 1
         Case "-"
             Str1SES = _
                 Str1SES & _
                 "<span style=""color:red;"">" & _
-                Str1Words.Item(Index1 - 1) & _
+                ReplaceChars(Str1Words.Item(Index1 - 1)) & _
                 "</span>"
             Index1 = Index1 + 1
         End Select
@@ -415,19 +415,41 @@ Function GetStr2SES(Str2Words, SES)
     For Index = 1 To Len(SES)
         Select Case Mid(SES, Index, 1)
         Case " "
-            Str2SES = Str2SES & Str2Words.Item(Index2 - 1)
+            Str2SES = Str2SES & ReplaceChars(Str2Words.Item(Index2 - 1))
             Index2 = Index2 + 1
         Case "+"
             Str2SES = _
                 Str2SES & _
                 "<span style=""color:red;"">" & _
-                Str2Words.Item(Index2 - 1) & _
+                ReplaceChars(Str2Words.Item(Index2 - 1)) & _
                 "</span>"
             Index2 = Index2 + 1
         End Select
     Next
     
     GetStr2SES = Str2SES
+End Function
+
+Function GetStrPre(Str)
+    Dim StrPre
+    Set StrPre = RegExp_Execute(Str, "^\W+", False, False, False)
+    If StrPre Is Nothing Then Exit Function
+    If StrPre.Count = 0 Then Exit Function
+    
+    GetStrPre = ReplaceChars(StrPre.Item(0))
+End Function
+
+Function ReplaceChars(Str)
+    Dim Temp
+    Temp = Str
+    
+    Temp = Replace(Temp, "&", "&amp;")
+    Temp = Replace(Temp, ">", "&gt;")
+    Temp = Replace(Temp, "<", "&lt;")
+    Temp = Replace(Temp, vbCrLf, "<br>")
+    Temp = Replace(Temp, vbLf, "<br>")
+    
+    ReplaceChars = Temp
 End Function
 
 Sub btnDiff_OnClick
@@ -457,19 +479,19 @@ Sub btnDiff_OnClick
     
     Dim Index1
     For Index1 = 0 To Len1 - 1
-        StrArray1(Index1) = Str1Words.Item(Index1).SubMatches.Item(0) & " "
+        StrArray1(Index1) = Str1Words.Item(Index1).SubMatches.Item(0)
     Next
     
     Dim Index2
     For Index2 = 0 To Len2 - 1
-        StrArray2(Index2) = Str2Words.Item(Index2).SubMatches.Item(0) & " "
+        StrArray2(Index2) = Str2Words.Item(Index2).SubMatches.Item(0)
     Next
     
     Dim SES
     SES = ShortestEditScript(StrArray1, StrArray2)
     
-    tdResult1.innerHTML = GetStr1SES(Str1Words, SES)
-    tdResult2.innerHTML = GetStr2SES(Str2Words, SES)
+    tdResult1.innerHTML = GetStrPre(Str1) & GetStr1SES(Str1Words, SES)
+    tdResult2.innerHTML = GetStrPre(Str2) & GetStr2SES(Str2Words, SES)
 End Sub
 -->
 </script>
