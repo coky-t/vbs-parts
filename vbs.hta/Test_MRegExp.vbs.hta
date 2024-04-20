@@ -355,7 +355,6 @@ Private Function GetPattern()
     Patterns = textareaPatterns.innerText
     If Patterns <> "" Then
         Pattern = "(?:" &  Join(Split(Replace(Patterns, Chr(13) & Chr(10), Chr(10)), Chr(10)), "|") & ")"
-        MsgBox Pattern
         GetPattern = Pattern
         Exit Function
     End If
