@@ -13,7 +13,7 @@
 Option Explicit
 
 '
-' Copyright (c) 2020 Koki Takeyama
+' Copyright (c) 2020,2024 Koki Takeyama
 '
 ' Permission is hereby granted, free of charge, to any person obtaining
 ' a copy of this software and associated documentation files (the "Software"),
@@ -164,7 +164,7 @@ Sub btnTest_OnClick
     End If
     
     Dim Pattern
-    Pattern = inputPattern.value
+    Pattern = GetPattern()
     If Pattern = "" Then
         MsgBox "Pattern: is blank."
         Exit Sub
@@ -198,7 +198,7 @@ Sub btnReplace_OnClick
     End If
     
     Dim Pattern
-    Pattern = inputPattern.value
+    Pattern = GetPattern()
     If Pattern = "" Then
         MsgBox "Pattern: is blank."
         Exit Sub
@@ -235,7 +235,7 @@ Sub btnExecute_OnClick
     End If
     
     Dim Pattern
-    Pattern = inputPattern.value
+    Pattern = GetPattern()
     If Pattern = "" Then
         MsgBox "Pattern: is blank."
         Exit Sub
@@ -342,6 +342,26 @@ Private Function GetHtml_From_SubMatches( _
     
     GetHtml_From_SubMatches = Html
 End Function
+
+Private Function GetPattern()
+    Dim Pattern
+    Pattern = inputPattern.value
+    If Pattern <> "" Then
+        GetPattern = Pattern
+        Exit Function
+    End If
+    
+    Dim Patterns
+    Patterns = textareaPatterns.innerText
+    If Patterns <> "" Then
+        Pattern = "(?:" &  Join(Split(Replace(Patterns, Chr(13) & Chr(10), Chr(10)), Chr(10)), "|") & ")"
+        MsgBox Pattern
+        GetPattern = Pattern
+        Exit Function
+    End If
+    
+    GetPattern = ""
+End Function
 -->
 </script>
 
@@ -369,6 +389,11 @@ End Function
 <tr>
 <td>Pattern:</td>
 <td><input id="inputPattern" style="width:100%" /></td>
+</tr>
+
+<tr>
+<td>Pattern:</td>
+<td><textarea id="textareaPatterns" rows="10" cols="50" style="width:100%"></textarea></td>
 </tr>
 
 <tr>
