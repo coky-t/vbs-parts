@@ -2,7 +2,7 @@
 Option Explicit
 
 '
-' Copyright (c) 2022,2023 Koki Takeyama
+' Copyright (c) 2022,2023,2024 Koki Takeyama
 '
 ' Permission is hereby granted, free of charge, to any person obtaining
 ' a copy of this software and associated documentation files (the "Software"),
@@ -471,7 +471,7 @@ Sub Test_SaveSpdxTemplateToPatternFile_Core( _
     Dim OutputText
     OutputText = GetMatchingText(InputText)
     
-    MADODBStream_WriteTextFileUTF8 OutputFilePath, OutputText, True
+    MADODBStream_WriteTextFileUTF8 OutputFilePath, OutputText, False
 End Sub
 
 Sub Test_CheckSpdxPatternFiles1_Core( _
