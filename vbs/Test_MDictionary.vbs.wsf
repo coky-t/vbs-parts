@@ -1,0 +1,11 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_StrArray_Unique">
+        <script language="vbscript" src="MDictionary.vbs" />
+        <script language="vbscript" src="Test_MDictionary.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_StrArray_Unique
+        </script>
+    </job>
+</package>
