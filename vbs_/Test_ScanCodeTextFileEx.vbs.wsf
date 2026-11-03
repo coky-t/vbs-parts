@@ -1,0 +1,73 @@
+<?XML version="1.0" standalone="yes" ?>
+<package>
+    <job id="Test_SaveScanCodeTextFileEx">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx
+        </script>
+    </job>
+    <job id="Test_SaveScanCodeTextFileEx2">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx2
+        </script>
+    </job>
+    <job id="Test_SaveScanCodeTextFileEx3">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx3
+        </script>
+    </job>
+    <job id="Test_SaveScanCodeTextFileEx4">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx4
+        </script>
+    </job>
+    <job id="Test_SaveScanCodeTextFileEx5">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx5
+        </script>
+    </job>
+    <job id="Test_SaveScanCodeTextFileEx6">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx6
+        </script>
+    </job>
+    <job id="Test_SaveScanCodeTextFileEx7">
+        <script language="vbscript" src="MADODBStream.vbs" />
+        <script language="vbscript" src="MFileSystem.vbs" />
+        <script language="vbscript" src="ScanCodeLicense.vbs" />
+        <script language="vbscript" src="Test_ScanCodeTextFileEx.vbs" />
+        <script language="vbscript" src="DebugPrint.vbs" />
+        <script language="vbscript">
+            Call Test_SaveScanCodeTextFileEx7
+        </script>
+    </job>
+</package>
