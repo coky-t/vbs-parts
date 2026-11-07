@@ -12,7 +12,7 @@ vbs's code snippets, helper functions, mini tools
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.FileSystemObject](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/z9ty6h50(v=vs.84))
+- [Scripting.FileSystemObject](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/z9ty6h50(v=vs.84))
 
 ### MFile.vbs - Read/Write Text File
 
@@ -22,7 +22,7 @@ Microsoft Scripting Runtime
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.File](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1ft05taf(v=vs.84))
+- [Scripting.File](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1ft05taf(v=vs.84))
 
 ### MADODBStream.vbs - Read/Write Text/Binary File
 
@@ -32,7 +32,7 @@ Microsoft Scripting Runtime
 #### Reference
 
 Microsoft ActiveX Data Objects X.X Library
-- [ADODB.Stream](https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/stream-object-ado)
+- [ADODB.Stream](https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/stream-object-ado)
 
 ## File System
 
@@ -52,7 +52,7 @@ Microsoft Scripting Runtime
 #### Reference
 
 Microsoft Scripting Runtime
-- [Scripting.Folder](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1c87day3(v=vs.84))
+- [Scripting.Folder](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/z9ty6h50(v=vs.84))
 
 ## Network
 
@@ -63,7 +63,7 @@ Microsoft Scripting Runtime
 #### Reference
 
 Microsoft XML, vX.X
-- [MSXML2.XMLHTTP](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms759148(v=vs.85))
+- [MSXML2.XMLHTTP](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms759148(v=vs.85))
 
 ## Text String
 
@@ -75,7 +75,7 @@ Microsoft XML, vX.X
 #### Reference
 
 Microsoft VBScript Regular Expression 5.5
-- [VBScript_RegExp_55.RegExp](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/6wzad2b2(v=vs.84))
+- [VBScript_RegExp_55.RegExp](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/6wzad2b2(v=vs.84))
 
 ### MHTMLDocument.vbs - JSON - Parse
 
@@ -92,8 +92,8 @@ Microsoft VBScript Regular Expression 5.5
 #### Reference
 
 Microsoft XML, vX.X
-- [MSXML2.DOMDocument](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms764730(v%3dvs.85))
-- [XDR Schema Data Types](https://docs.microsoft.com/en-us/previous-versions/ms256121(v=vs.85))
+- [MSXML2.DOMDocument](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms764730(v%3dvs.85))
+- [XDR Schema Data Types](https://learn.microsoft.com/en-us/previous-versions/ms256121(v=vs.85))
 
 ## Dialog Box
 
@@ -104,8 +104,8 @@ Microsoft XML, vX.X
 #### Reference
 
 Microsoft Excel X.X Object Library
-- [Excel.Application](https://docs.microsoft.com/en-us/office/vba/api/excel.application(object))
-- [Office.FileDialog](https://docs.microsoft.com/en-us/office/vba/api/office.filedialog)
+- [Excel.Application](https://learn.microsoft.com/en-us/office/vba/api/excel.application(object))
+- [Office.FileDialog](https://learn.microsoft.com/en-us/office/vba/api/office.filedialog)
 
 ## Tools
 
