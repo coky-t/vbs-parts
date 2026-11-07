@@ -96,7 +96,7 @@ End Sub
 ' - Returns a ADODB.Stream object.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/stream-object-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/stream-object-ado
 '
 
 Private Property Get ADODBStream()
@@ -111,7 +111,7 @@ End Property
 ' - Returns a FileSystemObject object.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object
 '
 
 Private Property Get FileSystemObject()
@@ -130,7 +130,7 @@ End Property
 ' - Returns a complete and unambiguous path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getabsolutepathname-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getabsolutepathname-method
 '
 
 Public Property Get AbsolutePathName()
@@ -142,8 +142,8 @@ End Property
 ' - Sets or returns the attributes of file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/attributes-property
-' https://docs.microsoft.com/en-us/office/vba/Language/Reference/user-interface-help/getattr-function
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/attributes-property
+' https://learn.microsoft.com/en-us/office/vba/Language/Reference/user-interface-help/getattr-function
 '
 
 Public Property Get Attributes()
@@ -160,7 +160,7 @@ End Property
 '   less any file extension, in a path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getbasename-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getbasename-method
 '
 
 Public Property Get BaseName()
@@ -186,7 +186,7 @@ End Property
 ' - Returns the date and time that the specified file was created.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datecreated-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datecreated-property
 '
 
 Public Property Get DateCreated()
@@ -198,7 +198,7 @@ End Property
 ' - Returns the date and time that the specified file was last accessed.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastaccessed-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastaccessed-property
 '
 
 Public Property Get DateLastAccessed()
@@ -210,7 +210,7 @@ End Property
 ' - Returns the date and time that the specified file was last modified.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastmodified-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastmodified-property
 '
 
 Public Property Get DateLastModified()
@@ -222,7 +222,7 @@ End Property
 ' - Returns a Drive object corresponding to the drive in a specified path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrive-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrive-method
 '
 
 Public Property Get Drive()
@@ -234,8 +234,8 @@ End Property
 ' - Returns the drive letter of the drive on which the specified file resides.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/drive-property
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrivename-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/drive-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrivename-method
 '
 
 Public Property Get DriveName()
@@ -252,7 +252,7 @@ End Property
 '   in a path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getextensionname-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getextensionname-method
 '
 
 Public Property Get ExtensionName()
@@ -264,7 +264,7 @@ End Property
 ' - Sets or returns a File object corresponding to the file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfile-method
 '
 
 Public Property Get File()
@@ -285,8 +285,8 @@ End Property
 ' - Sets or returns the name of a specified file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/name-property-filesystemobject-object
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfilename-method-visual-basic-for-applications
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/name-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfilename-method-visual-basic-for-applications
 '
 
 Public Property Get Name()
@@ -307,9 +307,9 @@ End Property
 ' - Returns the folder object for the parent of the specified file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfolder-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
 '
 
 Public Property Get ParentFolder()
@@ -328,9 +328,9 @@ End Property
 '   of the last component in a specified path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
 '
 
 Public Property Get ParentFolderName()
@@ -346,7 +346,7 @@ End Property
 ' - Sets or returns the path for a specified file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
 '
 
 Public Property Get Path()
@@ -368,7 +368,7 @@ End Property
 '   the earlier 8.3 naming convention.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortname-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortname-property
 '
 
 Public Property Get ShortName()
@@ -381,7 +381,7 @@ End Property
 '   the earlier 8.3 file naming convention.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortpath-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortpath-property
 '
 
 Public Property Get ShortPath()
@@ -393,7 +393,7 @@ End Property
 ' - Returns the size, in bytes, of the specified file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/size-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/size-property-filesystemobject-object
 '
 
 Public Property Get Size()
@@ -431,8 +431,8 @@ End Property
 ' - Writes a specified string (ASCII) to a file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/readall-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/readall-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
 '
 
 Public Property Get TextA()
@@ -511,8 +511,8 @@ End Property
 ' - Writes a specified string (Unicode) to a file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/readall-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/readall-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
 '
 
 Public Property Get TextW()
@@ -551,7 +551,7 @@ End Property
 '   For example, for files ending in .TXT, "Text Document" is returned.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/type-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/type-property-filesystemobject-object
 '
 
 Public Property Get TypeName()
@@ -587,9 +587,9 @@ End Sub
 '   in the Windows Registry.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/charset-property-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/writetext-method-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/savetofile-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/charset-property-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/writetext-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/savetofile-method-ado
 '
 
 Public Sub AppendText(Text_, Charset)
@@ -610,9 +610,9 @@ End Sub
 ' - Writes a specified string (ASCII) to the end of a file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/openastextstream-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/openastextstream-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
 '
 
 Public Sub AppendTextA(TextA_)
@@ -662,9 +662,9 @@ End Sub
 ' - Writes a specified string (Unicode) to the end of a file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/openastextstream-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/openastextstream-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/write-method
 '
 
 Public Sub AppendTextW(TextW_)
@@ -691,7 +691,7 @@ End Sub
 '   with valid path separators.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/buildpath-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/buildpath-method
 '
 
 Public Sub Build(ParentFolderName, FileName)
@@ -704,8 +704,8 @@ End Sub
 ' - Copies a specified file from one location to another.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copy-method-visual-basic-for-applications
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copyfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copy-method-visual-basic-for-applications
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copyfile-method
 '
 
 Public Sub Copy( _
@@ -723,7 +723,7 @@ End Sub
 ' - Creates a specified file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/createtextfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/createtextfile-method
 '
 
 Public Sub Create()
@@ -738,7 +738,7 @@ End Sub
 ' that can be used to read from or write to the file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/createtextfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/createtextfile-method
 '
 
 Public Function CreateTextFile( _
@@ -754,8 +754,8 @@ End Function
 ' - Deletes a specified file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/delete-method-visual-basic-for-applications
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/deletefile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/delete-method-visual-basic-for-applications
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/deletefile-method
 '
 
 Public Sub Delete(Force)
@@ -771,7 +771,7 @@ End Sub
 ' - Returns True if a specified file exists; False if it does not.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/fileexists-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/fileexists-method
 '
 
 Public Function Exists()
@@ -784,7 +784,7 @@ End Function
 '   from the user without actually opening any files.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/api/excel.application.getopenfilename
+' https://learn.microsoft.com/en-us/office/vba/api/excel.application.getopenfilename
 '
 
 'Public Sub GetOpenFileName( _
@@ -806,7 +806,7 @@ End Function
 '   from the user without actually saving any files.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/api/excel.application.getsaveasfilename
+' https://learn.microsoft.com/en-us/office/vba/api/excel.application.getsaveasfilename
 '
 
 'Public Sub GetSaveAsFileName( _
@@ -831,7 +831,7 @@ End Function
 '   for performing operations that require a temporary file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/gettempname-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/gettempname-method
 '
 
 Public Sub GetTempName()
@@ -846,8 +846,8 @@ End Sub
 ' - Moves a specified file from one location to another.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/move-method-filesystemobject-object
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/movefile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/move-method-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/movefile-method
 '
 
 Public Sub Move(Destination)
@@ -865,8 +865,8 @@ End Sub
 '   that can be used to read from, write to, or append to the file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/openastextstream-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/openastextstream-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
 '
 
 Public Function OpenAsTextStream( _
@@ -887,7 +887,7 @@ End Function
 '   that can be used to read from, write to, or append to the file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/opentextfile-method
 '
 
 Public Function OpenTextFile( _
@@ -905,8 +905,8 @@ End Function
 '   returns the resulting data.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/loadfromfile-method-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/read-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/loadfromfile-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/read-method-ado
 '
 
 Public Function ReadBinary( _
@@ -942,9 +942,9 @@ End Function
 '   in the Windows Registry.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/charset-property-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/loadfromfile-method-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/readtext-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/charset-property-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/loadfromfile-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/readtext-method-ado
 '
 
 Public Function ReadText( _
@@ -969,8 +969,8 @@ End Function
 ' - Writes a binary data to a file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/write-method-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/savetofile-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/write-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/savetofile-method-ado
 '
 
 Public Sub WriteBinary(Binary_, Position)
@@ -999,8 +999,8 @@ End Sub
 ' - Writes a specified string to a file.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/writetext-method-ado
-' https://docs.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/savetofile-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/writetext-method-ado
+' https://learn.microsoft.com/en-us/office/client-developer/access/desktop-database-reference/savetofile-method-ado
 '
 
 Public Sub WriteText(Text_, Charset)

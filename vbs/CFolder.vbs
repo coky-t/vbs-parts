@@ -75,7 +75,7 @@ End Sub
 ' - Returns a FileSystemObject object.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/Language/Reference/User-Interface-Help/filesystemobject-object
 '
 
 Private Property Get FileSystemObject()
@@ -94,7 +94,7 @@ End Property
 ' - Returns a complete and unambiguous path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getabsolutepathname-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getabsolutepathname-method
 '
 
 Public Property Get AbsolutePathName()
@@ -106,9 +106,9 @@ End Property
 ' - Sets or returns the attributes of folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/attributes-property
-' https://docs.microsoft.com/en-us/office/vba/Language/Reference/user-interface-help/getattr-function
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/setattr-statement
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/attributes-property
+' https://learn.microsoft.com/en-us/office/vba/Language/Reference/user-interface-help/getattr-function
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/setattr-statement
 '
 
 Public Property Get Attributes()
@@ -124,7 +124,7 @@ End Property
 ' - Returns the date and time that the specified folder was created.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datecreated-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datecreated-property
 '
 
 Public Property Get DateCreated()
@@ -136,7 +136,7 @@ End Property
 ' - Returns the date and time that the specified folder was last accessed.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastaccessed-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastaccessed-property
 '
 
 Public Property Get DateLastAccessed()
@@ -148,7 +148,7 @@ End Property
 ' - Returns the date and time that the specified folder was last modified.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastmodified-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/datelastmodified-property
 '
 
 Public Property Get DateLastModified()
@@ -160,7 +160,7 @@ End Property
 ' - Returns a Drive object corresponding to the drive in a specified path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrive-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrive-method
 '
 
 Public Property Get Drive()
@@ -172,8 +172,8 @@ End Property
 ' - Returns the drive letter of the drive on which the specified folder resides.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/drive-property
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrivename-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/drive-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getdrivename-method
 '
 
 Public Property Get DriveName()
@@ -191,7 +191,7 @@ End Property
 '   and system file attributes set.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/files-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/files-property
 '
 
 Public Property Get Files()
@@ -235,7 +235,7 @@ End Sub
 ' - Sets or returns a Folder object corresponding to the folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfolder-method
 '
 
 Public Property Get Folder()
@@ -256,7 +256,7 @@ End Property
 ' - Returns True if a folder is the root folder and False if not.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/isrootfolder-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/isrootfolder-property
 '
 
 Public Property Get IsRootFolder()
@@ -268,7 +268,7 @@ End Property
 ' - Sets or returns the name of a specified folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/name-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/name-property-filesystemobject-object
 '
 
 Public Property Get Name()
@@ -285,9 +285,9 @@ End Property
 ' - Returns the folder object for the parent of the specified folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfolder-method
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getfolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
 '
 
 Public Property Get ParentFolder()
@@ -306,9 +306,9 @@ End Property
 '   of the last component in a specified path.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/parentfolder-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getparentfoldername-method
 '
 
 Public Property Get ParentFolderName()
@@ -324,7 +324,7 @@ End Property
 ' - Sets or returns the path for a specified folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/path-property-filesystemobject-object
 '
 
 Public Property Get Path()
@@ -346,7 +346,7 @@ End Property
 '   the earlier 8.3 naming convention.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortname-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortname-property
 '
 
 Public Property Get ShortName()
@@ -359,7 +359,7 @@ End Property
 '   the earlier 8.3 folder naming convention.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortpath-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/shortpath-property
 '
 
 Public Property Get ShortPath()
@@ -372,7 +372,7 @@ End Property
 '   contained in the folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/size-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/size-property-filesystemobject-object
 '
 
 Public Property Get Size()
@@ -386,7 +386,7 @@ End Property
 '   and System file attributes set.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/subfolders-property
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/subfolders-property
 '
 
 Public Property Get SubFolders()
@@ -424,7 +424,7 @@ End Sub
 ' - Returns information about the type of a folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/type-property-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/type-property-filesystemobject-object
 '
 
 Public Property Get TypeName()
@@ -441,7 +441,7 @@ End Property
 '   with valid path separators.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/buildpath-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/buildpath-method
 '
 
 Public Sub Build(ParentFolderName, FolderName)
@@ -454,8 +454,8 @@ End Sub
 ' - Copies a specified folder from one location to another.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copy-method-visual-basic-for-applications
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copyfolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copy-method-visual-basic-for-applications
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/copyfolder-method
 '
 
 Public Sub Copy( _
@@ -473,7 +473,7 @@ End Sub
 ' - Creates a folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/createfolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/createfolder-method
 '
 
 Public Sub Create(Recursive)
@@ -500,8 +500,8 @@ End Sub
 ' - Deletes a specified folder.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/delete-method-visual-basic-for-applications
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/deletefolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/delete-method-visual-basic-for-applications
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/deletefolder-method
 '
 
 Public Sub Delete(Force)
@@ -517,7 +517,7 @@ End Sub
 ' - Returns True if a specified folder exists; False if it does not.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/folderexists-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/folderexists-method
 '
 
 Public Function Exists()
@@ -529,7 +529,7 @@ End Function
 ' - Displays the standard Open dialog box and gets a folder name.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/api/excel.application.filedialog
+' https://learn.microsoft.com/en-us/office/vba/api/excel.application.filedialog
 '
 
 'Public Sub GetFolderName(Title)
@@ -547,7 +547,7 @@ End Function
 ' - Returns the special folder specified.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getspecialfolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/getspecialfolder-method
 '
 
 Public Sub GetSpecialFolderName( _
@@ -574,8 +574,8 @@ End Sub
 ' - Moves a specified folder from one location to another.
 '
 ' Reference:
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/move-method-filesystemobject-object
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/movefolder-method
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/move-method-filesystemobject-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/movefolder-method
 '
 
 Public Sub Move(Destination)

@@ -26,13 +26,13 @@ Option Explicit
 ' VBA/VB.NET Collection Like Class
 '
 ' VBA - Collection object
-' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/collection-object
+' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/collection-object
 '
 ' VB.NET - Collection class
-' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection?view=netcore-3.1
+' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection?view=netcore-3.1
 '
 ' Scripting - Dictionary object
-' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/x4k5wbx4(v=vs.84)
+' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/x4k5wbx4(v=vs.84)
 '
 
 Class Collection
@@ -55,13 +55,13 @@ Class Collection
     
     '
     ' VBA - Collection - Item method
-    ' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/item-method-visual-basic-for-applications
+    ' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/item-method-visual-basic-for-applications
     '
     ' VB.NET - Collection - Item property
-    ' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.item?view=netcore-3.1
+    ' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.item?view=netcore-3.1
     '
     ' Scripting - Dictionary - Item property
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/84k9x471(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/84k9x471(v=vs.84)
     '
     
     Public Default Property Get Item(index_or_key)
@@ -77,13 +77,13 @@ Class Collection
     
     '
     ' VBA - Collection - Count property
-    ' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/count-property-visual-basic-for-applications
+    ' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/count-property-visual-basic-for-applications
     '
     ' VB.NET - Collection - Count property
-    ' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.count?view=netcore-3.1
+    ' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.count?view=netcore-3.1
     '
     ' Scripting - Dictionary - Count property
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/5t9h9579(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/5t9h9579(v=vs.84)
     '
     
     Public Property Get Count
@@ -92,13 +92,13 @@ Class Collection
     
     '
     ' VBA - Collection - Add method
-    ' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/add-method-visual-basic-for-applications
+    ' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/add-method-visual-basic-for-applications
     '
     ' VB.NET - Collection - Add method
-    ' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.add?view=netcore-3.1
+    ' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.add?view=netcore-3.1
     '
     ' Scripting - Dictionary - Add method
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/5h92h863(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/5h92h863(v=vs.84)
     '
     
     Public Sub PushBack(item_)
@@ -183,16 +183,16 @@ Class Collection
     
     '
     ' VBA - Collection - Remove method
-    ' https://docs.microsoft.com/en-us/office/vba/language/reference/user-interface-help/remove-method-visual-basic-for-applications
+    ' https://learn.microsoft.com/en-us/office/vba/language/reference/user-interface-help/remove-method-visual-basic-for-applications
     '
     ' VB.NET - Collection - Remove method
-    ' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.remove?view=netcore-3.1
+    ' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.remove?view=netcore-3.1
     '
     ' Scripting - Dictionary - Remove method
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/ywyayk03(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/ywyayk03(v=vs.84)
     '
     ' Scripting - Dictionary - Key property
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1ex01tte(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/1ex01tte(v=vs.84)
     '
     
     Public Sub Remove(index_or_key)
@@ -242,10 +242,10 @@ Class Collection
     
     '
     ' VB.NET - Collection - Clear method
-    ' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.clear?view=netcore-3.1
+    ' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.clear?view=netcore-3.1
     '
     ' Scripting - Dictionary - RemoveAll method
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/45731e2w(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/45731e2w(v=vs.84)
     '
     
     Public Sub Clear
@@ -256,10 +256,10 @@ Class Collection
     
     '
     ' VB.NET - Collection - Contains method
-    ' https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.contains?view=netcore-3.1
+    ' https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.collection.contains?view=netcore-3.1
     '
     ' Scripting - Dictionary - Exists method
-    ' https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/57hdf10z(v=vs.84)
+    ' https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/57hdf10z(v=vs.84)
     '
     
     Public Function Contains(key)
